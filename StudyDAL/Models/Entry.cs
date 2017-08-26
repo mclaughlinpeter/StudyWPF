@@ -14,6 +14,8 @@ namespace StudyDAL.Models
         [Key]
         public int EntryID { get; set; }
 
+        public DateTime DateTimeStamp { get; set; }
+
         [StringLength(50)]
         public string Subject { get; set; }
 
