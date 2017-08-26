@@ -8,7 +8,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StudyDAL.Models
 {
+    [Table("Entry")]
     public partial class Entry
     {
+        [Key]
+        public int EntryID { get; set; }
+
+        [StringLength(50)]
+        public string Subject { get; set; }
+
+        public int Duration { get; set; }
     }
 }
