@@ -18,7 +18,10 @@ namespace StudyDAL.EF
                 new Entry {Subject = "JS", Duration = 60 },
                 new Entry {Subject = "C++", Duration = 45 },
                 new Entry {Subject = "Linux", Duration = 75 },
-                new Entry {Subject = "C#", Duration = 30 }
+                new Entry {Subject = "Azure", Duration = 90 },
+                new Entry {Subject = "C#", Duration = 30 },
+                new Entry {Subject = "HTML", Duration = 30 },
+                new Entry {Subject = "ASP.NET", Duration = 120 }
             };
             entries.ForEach(x => context.Entries.Add(x));
             context.SaveChanges();
