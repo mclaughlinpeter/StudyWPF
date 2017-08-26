@@ -24,7 +24,7 @@ namespace StudyConsoleTest
             {
                 foreach (Entry e in repo.GetAll())
                 {
-                    Console.WriteLine($"Entry ID: {e.EntryID}\tSubject: {e.Subject}\tDuration: {e.Duration}\tDTS: {e.DateTimeStamp.ToString()}");
+                    Console.WriteLine($"ID: {e.EntryID}\tSubject: {e.Subject}\tDuration: {e.Duration.ToString()}\tDTS: {e.DateTimeStamp.ToString()}");
                 }
             }
         }

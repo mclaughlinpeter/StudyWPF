@@ -19,6 +19,6 @@ namespace StudyDAL.Models
         [StringLength(50)]
         public string Subject { get; set; }
 
-        public int Duration { get; set; }
+        public TimeSpan Duration { get; set; }
     }
 }
