@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyDAL", "StudyDAL\StudyD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyConsoleTest", "StudyConsoleTest\StudyConsoleTest.csproj", "{C2243CF8-3A44-4916-97A3-75F5FE5C7413}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyWPFClient", "StudyWPFClient\StudyWPFClient.csproj", "{2C92B747-CA98-48D2-95E0-830E12CBA705}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C2243CF8-3A44-4916-97A3-75F5FE5C7413}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2243CF8-3A44-4916-97A3-75F5FE5C7413}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2243CF8-3A44-4916-97A3-75F5FE5C7413}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C92B747-CA98-48D2-95E0-830E12CBA705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C92B747-CA98-48D2-95E0-830E12CBA705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C92B747-CA98-48D2-95E0-830E12CBA705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C92B747-CA98-48D2-95E0-830E12CBA705}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
