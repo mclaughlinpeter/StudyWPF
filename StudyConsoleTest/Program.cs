@@ -19,6 +19,7 @@ namespace StudyConsoleTest
             var ent1 = new Entry() { DateTimeStamp = DateTime.Now.AddHours(3), Duration = new TimeSpan(1, 0, 0), Subject = "C++" };
             DeleteRecord(6);
             PrintAllEntries();
+            PrintSubjects();
         }
 
         static void PrintAllEntries()
@@ -28,6 +29,20 @@ namespace StudyConsoleTest
                 foreach (Entry e in repo.GetAll())
                 {
                     Console.WriteLine($"ID: {e.EntryID}\tSubject: {e.Subject}\tDuration: {e.Duration.ToString()}\tDTS: {e.DateTimeStamp.ToString()}");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void PrintSubjects()
+        {
+            using (var repo = new EntryRepo())
+            {
+                IList<Entry> entries = repo.GetAll();
+                IList<string> subjects = (from e in entries where e.Subject.Contains("C") select e.Subject).ToList();
+                foreach (string s in subjects)
+                {
+                    Console.WriteLine(s);
                 }
                 Console.WriteLine();
             }
