@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using StudyDAL.Models;
+using StudyDAL.Repos;
 
 namespace StudyWPFClient
 {
@@ -25,15 +26,15 @@ namespace StudyWPFClient
         public MainWindow()
         {
             InitializeComponent();
-            _entries = new List<Entry>
-            {
+            _entries = new List<Entry>(new EntryRepo().GetAll());
+            /*{
                 new Entry { EntryID = 1, Subject = "C#", Duration = new TimeSpan(2, 30, 0), DateTimeStamp = DateTime.Now.AddHours(1) },
                 new Entry { EntryID = 2, Subject = "JS", Duration = new TimeSpan(0, 45, 0), DateTimeStamp = DateTime.Now.AddMinutes(30) },
                 new Entry { EntryID = 3, Subject = "C++", Duration = new TimeSpan(1, 15, 0), DateTimeStamp = DateTime.Now.AddDays(2) },
                 new Entry { EntryID = 4, Subject = "Linux", Duration = new TimeSpan(0, 30, 0), DateTimeStamp = DateTime.Now.AddMonths(1) },
                 new Entry { EntryID = 5, Subject = "C++", Duration = new TimeSpan(1, 30, 0), DateTimeStamp = DateTime.Now.AddDays(3) },
                 new Entry { EntryID = 6, Subject = "Linux", Duration = new TimeSpan(0, 45, 0), DateTimeStamp = DateTime.Now.AddMonths(2) }
-            };
+            };*/
             studySubjects.ItemsSource = new HashSet<string>(from e in _entries select e.Subject);
         }
     }
