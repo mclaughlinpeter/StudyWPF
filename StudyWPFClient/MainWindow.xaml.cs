@@ -26,6 +26,7 @@ namespace StudyWPFClient
         public MainWindow()
         {
             InitializeComponent();
+
             _entries = new List<Entry>(new EntryRepo().GetAll());
             /*{
                 new Entry { EntryID = 1, Subject = "C#", Duration = new TimeSpan(2, 30, 0), DateTimeStamp = DateTime.Now.AddHours(1) },
@@ -36,6 +37,9 @@ namespace StudyWPFClient
                 new Entry { EntryID = 6, Subject = "Linux", Duration = new TimeSpan(0, 45, 0), DateTimeStamp = DateTime.Now.AddMonths(2) }
             };*/
             studySubjects.ItemsSource = new HashSet<string>(from e in _entries select e.Subject);
+
+            durationHours.ItemsSource = new List<int> { 1, 2, 3, 4 };
+            durationMinutes.ItemsSource = new List<int> { 0, 15, 30, 45 };
         }
     }
 }

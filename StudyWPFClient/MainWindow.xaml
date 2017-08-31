@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudyWPFClient"
         mc:Ignorable="d"
-        Title="Peter's Study" Height="350" Width="525"
+        Title="Peter's Study" Height="350" Width="341.515" ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner">
     <Grid>
-        <TabControl x:Name="studyTabControl" HorizontalAlignment="Left" Height="319" VerticalAlignment="Top" Width="517">
+        <TabControl x:Name="studyTabControl" HorizontalAlignment="Left" Height="311" VerticalAlignment="Top" Width="326">
             <TabItem Header="New Entry">
-                <Grid Background="#FFE5E5E5" IsSharedSizeScope="True" Margin="5">
+                <Grid Background="#FFE5E5E5" IsSharedSizeScope="True" Margin="5,5,5,5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
@@ -23,7 +23,24 @@
                         <Label Grid.Column="0" Content="Subject"/>
                         <ComboBox x:Name="studySubjects" Grid.Column="1" />
                     </Grid>
-                </Grid> 
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Labels"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="0" Grid.Row="0" Content="Date" VerticalAlignment="Center"/>
+                        <DatePicker Grid.Column="1" Grid.Row="0"/>
+                        <Label Grid.Column="0" Grid.Row="1" Content="Duration" VerticalAlignment="Center"/>
+                        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
+                            <ComboBox x:Name="durationHours" Margin="20, 5, 20, 5" Padding="4" />
+                            <ComboBox x:Name="durationMinutes" Margin="20, 5, 20, 5" Padding="4" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
             </TabItem>
             <TabItem Header="TabItem">
                 <Grid Background="#FFE5E5E5"/>
