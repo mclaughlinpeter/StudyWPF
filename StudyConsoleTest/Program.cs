@@ -14,7 +14,7 @@ namespace StudyConsoleTest
     {
         static void Main(string[] args)
         {
-            //Database.SetInitializer(new DataInitializer());
+            Database.SetInitializer(new DataInitializer());
             PrintAllEntries();
             PrintSubjects();
         }

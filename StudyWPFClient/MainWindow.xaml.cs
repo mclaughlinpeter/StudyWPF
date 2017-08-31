@@ -46,10 +46,41 @@ namespace StudyWPFClient
         {
             Entry newEntry = new Entry();
 
-            newEntry.Subject = this.studySubjects.SelectedItem.ToString();
-            newEntry.Duration = new TimeSpan(Convert.ToInt32((this.durationHours.SelectedItem as ComboBoxItem)?.Content.ToString()), Convert.ToInt32((this.durationMinutes.SelectedItem as ComboBoxItem)?.Content.ToString()), 0);
-            newEntry.DateTimeStamp = (DateTime)studyDate.SelectedDate;
+            newEntry.Subject = this.studySubjects.SelectedItem?.ToString() ?? "No subject";
 
+            int hours = 0;
+            try
+            {
+                hours = Convert.ToInt32((this.durationHours.SelectedItem as ComboBoxItem)?.Content.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            int minutes = 0;
+            try
+            {
+                minutes = Convert.ToInt32((this.durationMinutes.SelectedItem as ComboBoxItem)?.Content.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            newEntry.Duration = new TimeSpan(hours, minutes, 0);
+
+            try
+            {
+                newEntry.DateTimeStamp = (DateTime)studyDate.SelectedDate;
+            }
+            catch (Exception ex)
+            {
+                newEntry.DateTimeStamp = DateTime.Now;
+            }
+            
             MessageBox.Show(newEntry.ToString(), "New Entry");
 
             using (var repo = new EntryRepo())
