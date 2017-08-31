@@ -41,5 +41,16 @@ namespace StudyWPFClient
             //durationHours.ItemsSource = new List<int> { 1, 2, 3, 4 };
             //durationMinutes.ItemsSource = new List<int> { 0, 15, 30, 45 };
         }
+
+        private void btnSubmitEntry_Click(object sender, RoutedEventArgs e)
+        {
+            Entry newEntry = new Entry();
+
+            newEntry.Subject = this.studySubjects.SelectedItem.ToString();
+            newEntry.Duration = new TimeSpan(Convert.ToInt32((this.durationHours.SelectedItem as ComboBoxItem)?.Content.ToString()), Convert.ToInt32((this.durationMinutes.SelectedItem as ComboBoxItem)?.Content.ToString()), 0);
+            newEntry.DateTimeStamp = (DateTime)studyDate.SelectedDate;
+
+            MessageBox.Show(newEntry.ToString(), "New Entry");
+        }
     }
 }
