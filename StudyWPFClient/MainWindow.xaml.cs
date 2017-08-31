@@ -38,8 +38,8 @@ namespace StudyWPFClient
             };*/
             studySubjects.ItemsSource = new HashSet<string>(from e in _entries select e.Subject);
 
-            durationHours.ItemsSource = new List<int> { 1, 2, 3, 4 };
-            durationMinutes.ItemsSource = new List<int> { 0, 15, 30, 45 };
+            //durationHours.ItemsSource = new List<int> { 1, 2, 3, 4 };
+            //durationMinutes.ItemsSource = new List<int> { 0, 15, 30, 45 };
         }
     }
 }
