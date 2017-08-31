@@ -51,6 +51,11 @@ namespace StudyWPFClient
             newEntry.DateTimeStamp = (DateTime)studyDate.SelectedDate;
 
             MessageBox.Show(newEntry.ToString(), "New Entry");
+
+            using (var repo = new EntryRepo())
+            {
+                repo.Add(newEntry);
+            }
         }
     }
 }
