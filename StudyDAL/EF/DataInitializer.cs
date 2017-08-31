@@ -17,7 +17,9 @@ namespace StudyDAL.EF
                 new Entry {Subject = "C#", Duration = new TimeSpan(2, 30, 0), DateTimeStamp = DateTime.Now.AddHours(1) },
                 new Entry {Subject = "JS", Duration = new TimeSpan(0, 45, 0), DateTimeStamp = DateTime.Now.AddMinutes(30) },
                 new Entry {Subject = "C++", Duration = new TimeSpan(1, 15, 0), DateTimeStamp = DateTime.Now.AddDays(2) },
-                new Entry {Subject = "Linux", Duration = new TimeSpan(0, 30, 0), DateTimeStamp = DateTime.Now.AddMonths(1) }
+                new Entry {Subject = "Linux", Duration = new TimeSpan(0, 30, 0), DateTimeStamp = DateTime.Now.AddMonths(1) },
+                new Entry {Subject = "C++", Duration = new TimeSpan(1, 30, 0), DateTimeStamp = DateTime.Now.AddDays(3) },
+                new Entry {Subject = "Linux", Duration = new TimeSpan(0, 45, 0), DateTimeStamp = DateTime.Now.AddMonths(2) }
             };
             entries.ForEach(x => context.Entries.Add(x));
             context.SaveChanges();

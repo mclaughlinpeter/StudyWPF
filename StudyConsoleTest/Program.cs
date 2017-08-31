@@ -16,9 +16,6 @@ namespace StudyConsoleTest
         {
             Database.SetInitializer(new DataInitializer());
             PrintAllEntries();
-            var ent1 = new Entry() { DateTimeStamp = DateTime.Now.AddHours(3), Duration = new TimeSpan(1, 0, 0), Subject = "C++" };
-            DeleteRecord(6);
-            PrintAllEntries();
             PrintSubjects();
         }
 
@@ -39,7 +36,7 @@ namespace StudyConsoleTest
             using (var repo = new EntryRepo())
             {
                 IList<Entry> entries = repo.GetAll();
-                IList<string> subjects = (from e in entries where e.Subject.Contains("C") select e.Subject).ToList();
+                HashSet<string> subjects = new HashSet<string>(from e in entries select e.Subject);
                 foreach (string s in subjects)
                 {
                     Console.WriteLine(s);
