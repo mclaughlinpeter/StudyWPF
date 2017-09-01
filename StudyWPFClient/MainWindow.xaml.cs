@@ -28,7 +28,19 @@ namespace StudyWPFClient
         {
             InitializeComponent();
 
-            _entries = new List<Entry>(new EntryRepo().GetAll());
+            try
+            {
+                using (var repo = new EntryRepo())
+                {
+                    _entries = new List<Entry>(repo.GetAll());
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Unable to connect to data source", "Study Application");
+                Environment.Exit(1);
+            }            
+
             /*{
                 new Entry { EntryID = 1, Subject = "C#", Duration = new TimeSpan(2, 30, 0), DateTimeStamp = DateTime.Now.AddHours(1) },
                 new Entry { EntryID = 2, Subject = "JS", Duration = new TimeSpan(0, 45, 0), DateTimeStamp = DateTime.Now.AddMinutes(30) },

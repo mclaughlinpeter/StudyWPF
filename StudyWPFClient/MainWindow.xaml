@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudyWPFClient"
         mc:Ignorable="d"
-        Title="Peter's Study" Height="350" Width="341.515" ResizeMode="NoResize"
+        Title="Study Application" Height="350" Width="341.515" ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner">
     <Grid>
         <TabControl x:Name="studyTabControl" HorizontalAlignment="Left" Height="311" VerticalAlignment="Top" Width="326">
