@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using StudyDAL.Models;
 using StudyDAL.Repos;
+using System.Windows.Media.Animation;
 
 namespace StudyWPFClient
 {
@@ -37,9 +38,6 @@ namespace StudyWPFClient
                 new Entry { EntryID = 6, Subject = "Linux", Duration = new TimeSpan(0, 45, 0), DateTimeStamp = DateTime.Now.AddMonths(2) }
             };*/
             studySubjects.ItemsSource = new HashSet<string>(from e in _entries select e.Subject);
-
-            //durationHours.ItemsSource = new List<int> { 1, 2, 3, 4 };
-            //durationMinutes.ItemsSource = new List<int> { 0, 15, 30, 45 };
         }
 
         private void btnSubmitEntry_Click(object sender, RoutedEventArgs e)
@@ -76,17 +74,58 @@ namespace StudyWPFClient
             {
                 newEntry.DateTimeStamp = (DateTime)studyDate.SelectedDate;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 newEntry.DateTimeStamp = DateTime.Now;
             }
-            
-            MessageBox.Show(newEntry.ToString(), "New Entry");
 
-            using (var repo = new EntryRepo())
+            try
             {
-                repo.Add(newEntry);
+                using (var repo = new EntryRepo())
+                {
+                    repo.Add(newEntry);
+                }
             }
+            catch (Exception)
+            {
+                MessageAnimation("Error writing to database");
+                return;
+            }            
+
+            MessageAnimation("Db write successful");
+        }
+
+        private void MessageAnimation(string msg)
+        {
+            lblMessage.Content = msg;
+
+            DoubleAnimation opacityAnim = new DoubleAnimation
+            {
+                From = 0.0,
+                To = 1.0,
+                BeginTime = TimeSpan.FromSeconds(0.3),
+                Duration = new Duration(TimeSpan.FromSeconds(0.5))
+            };
+
+            DoubleAnimation heightAnim = new DoubleAnimation { From = 0.0, To = 60.0, Duration = new Duration(TimeSpan.FromSeconds(0.3)) };
+
+            var storyboard = new Storyboard()
+            {
+                Duration = TimeSpan.FromSeconds(1.5),
+                AutoReverse = true,
+            };
+            storyboard.Completed += (o, s) => { lblMessage.Content = ""; };
+
+            Storyboard.SetTarget(opacityAnim, lblMessage);
+            Storyboard.SetTargetProperty(opacityAnim, new PropertyPath(Label.OpacityProperty));
+
+            Storyboard.SetTarget(heightAnim, lblMessage);
+            Storyboard.SetTargetProperty(heightAnim, new PropertyPath(Label.HeightProperty));
+
+            storyboard.Children.Add(opacityAnim);
+            storyboard.Children.Add(heightAnim);
+
+            lblMessage.BeginStoryboard(storyboard);
         }
     }
 }
