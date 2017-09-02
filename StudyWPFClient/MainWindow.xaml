@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="Study Application" Height="350" Width="341.515" ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        
+    </Window.Resources>
     <Grid>
         <TabControl x:Name="studyTabControl" HorizontalAlignment="Left" Height="311" VerticalAlignment="Top" Width="326">
             <TabItem Header="New Entry">
@@ -55,9 +58,10 @@
                             </ComboBox>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
-                            <Label x:Name="lblTimer" Height="Auto" Width="175" Margin="5, 2, 5, 2" VerticalContentAlignment="Center" Content="00:00:00" FontStyle="Italic" FontFamily="Arial" FontSize="40" Background="#FFB1E4E4" BorderBrush="#FFE9F058" BorderThickness="2">
+                            <Label x:Name="lblTimer" Height="Auto" Width="175" Margin="5, 2, 5, 2" VerticalContentAlignment="Center" Content="00:00:00" FontFamily="Arial" FontSize="40" Background="#FFBFBFBF" BorderBrush="#FF5F5F5F" BorderThickness="2">
                                 <Label.Resources>
-                                    <Style TargetType="{x:Type Border}">
+                                    <!--<Style TargetType="{x:Type Border}">-->
+                                    <Style TargetType="Border">
                                         <Setter Property="CornerRadius" Value="7"/>
                                     </Style>
                                 </Label.Resources>
@@ -69,7 +73,7 @@
                         </StackPanel>                        
                         <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal" Margin="0, 10, 0, 0">
                             <Button x:Name="btnSubmitEntry" Content="Submit" Margin="5, 4, 5, 2" Width="80" Height="40" FontSize="16" Click="btnSubmitEntry_Click" />
-                            <Button Content="Clear" Margin="5, 2, 5, 2" Width="80" Height="40" FontSize="16" />
+                            <Button x:Name="btnClearForm" Content="Clear" Margin="5, 2, 5, 2" Width="80" Height="40" FontSize="16" />
                         </StackPanel>
                         <Label x:Name="lblMessage" Grid.Column="1" Grid.Row="4" Content="" Height="0" Opacity="0.0"/>
                         <Separator Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Margin="5, 2, 5, 2" />
