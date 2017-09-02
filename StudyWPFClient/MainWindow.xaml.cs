@@ -119,7 +119,7 @@ namespace StudyWPFClient
                 Duration = new Duration(TimeSpan.FromSeconds(0.5))
             };
 
-            DoubleAnimation heightAnim = new DoubleAnimation { From = 0.0, To = 60.0, Duration = new Duration(TimeSpan.FromSeconds(0.3)) };
+            DoubleAnimation heightAnim = new DoubleAnimation { From = 0.0, To = 25.0, Duration = new Duration(TimeSpan.FromSeconds(0.3)) };
 
             var storyboard = new Storyboard()
             {
