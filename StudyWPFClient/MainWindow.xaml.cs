@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -24,6 +25,10 @@ namespace StudyWPFClient
     public partial class MainWindow : Window
     {
         readonly IList<Entry> _entries;
+
+        DispatcherTimer timer = new DispatcherTimer();
+        TimeSpan timerDuration = new TimeSpan(0, 0, 0);
+
         public MainWindow()
         {
             InitializeComponent();
@@ -50,8 +55,12 @@ namespace StudyWPFClient
                 new Entry { EntryID = 6, Subject = "Linux", Duration = new TimeSpan(0, 45, 0), DateTimeStamp = DateTime.Now.AddMonths(2) }
             };*/
             studySubjects.ItemsSource = new HashSet<string>(from e in _entries select e.Subject);
-        }
 
+            //  Setup DispatcherTimer
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+        }
+                
         private void btnSubmitEntry_Click(object sender, RoutedEventArgs e)
         {
             Entry newEntry = new Entry();
@@ -138,6 +147,29 @@ namespace StudyWPFClient
             storyboard.Children.Add(heightAnim);
 
             lblMessage.BeginStoryboard(storyboard);
+        }
+
+        //  timer event handler and timer button event handlers
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            timerDuration += TimeSpan.FromSeconds(1);
+            lblTimer.Content = timerDuration.ToString("c");
+        }
+
+        private void btnToggleTimer_Click(object sender, RoutedEventArgs e)
+        {
+            if (timer.IsEnabled)
+                timer.Stop();
+            else
+                timer.Start();
+        }
+
+        private void btnResetTimer_Click(object sender, RoutedEventArgs e)
+        {
+            if (timer.IsEnabled)
+                timer.Stop();
+            timerDuration = TimeSpan.Zero;
+            lblTimer.Content = timerDuration.ToString("c");
         }
     }
 }

@@ -66,8 +66,8 @@
                                 </Label.Resources>
                             </Label>
                             <StackPanel Orientation="Vertical">
-                                <Button Margin="2, 2, 2, 2" Content="Start / Stop"/>
-                                <Button Margin="2, 2, 2, 2" Content="Reset" />
+                                <Button x:Name="btnToggleTimer" Margin="2, 2, 2, 2" Content="Start / Stop" Click="btnToggleTimer_Click"/>
+                                <Button x:Name="btnResetTimer" Margin="2, 2, 2, 2" Content="Reset" Click="btnResetTimer_Click" />
                             </StackPanel>
                         </StackPanel>                        
                         <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal" Margin="0, 10, 0, 0">
