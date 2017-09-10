@@ -45,7 +45,7 @@
                         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
                             <Label Content="Manual:" />
                             <Label Content="hh" Margin="10, 0, 0, 0" />
-                            <ComboBox x:Name="durationHours" Margin="2, 2, 20, 2" Width="45" SelectedIndex="0">
+                            <ComboBox x:Name="durationHours" Margin="2, 2, 20, 2" Width="45" SelectedIndex="0" IsEnabled="True">
                                 <ComboBoxItem Content="0"/>
                                 <ComboBoxItem Content="1"/>
                                 <ComboBoxItem Content="2"/>
@@ -53,14 +53,14 @@
                                 <ComboBoxItem Content="4"/>
                             </ComboBox>
                             <Label Content="mm" Margin="10, 0, 0, 0" />
-                            <ComboBox x:Name="durationMinutes" Margin="2, 2, 20, 2" Width="45" SelectedIndex="0">
+                            <ComboBox x:Name="durationMinutes" Margin="2, 2, 20, 2" Width="45" SelectedIndex="0" IsEnabled="True">
                                 <ComboBoxItem Content="00"/>
                                 <ComboBoxItem Content="15"/>
                                 <ComboBoxItem Content="30"/>
                                 <ComboBoxItem Content="45"/>
                             </ComboBox>
                         </StackPanel>
-                        <Expander x:Name="timerExpander" Grid.Column="1" Grid.Row="2" Header="Use Timer">
+                        <Expander x:Name="timerExpander" Grid.Column="1" Grid.Row="2" Header="Use Timer" Expanded="timerExpander_Expanded" Collapsed="timerExpander_Collapsed">
                             <StackPanel Orientation="Horizontal">
                                 <Label x:Name="lblTimer" Height="Auto" Width="175" Margin="5, 5, 5, 2" VerticalContentAlignment="Center" Content="00:00:00" FontFamily="Arial" FontSize="40" Background="#FFBFBFBF" BorderBrush="#FF5F5F5F" BorderThickness="2">
                                     <Label.Resources>

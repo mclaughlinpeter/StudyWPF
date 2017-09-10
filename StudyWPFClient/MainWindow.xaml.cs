@@ -171,5 +171,17 @@ namespace StudyWPFClient
             timerDuration = TimeSpan.Zero;
             lblTimer.Content = timerDuration.ToString("c");
         }
+
+        private void timerExpander_Expanded(object sender, RoutedEventArgs e)
+        {
+            durationHours.IsEnabled = false;
+            durationMinutes.IsEnabled = false;
+        }
+
+        private void timerExpander_Collapsed(object sender, RoutedEventArgs e)
+        {
+            durationHours.IsEnabled = true;
+            durationMinutes.IsEnabled = true;
+        }
     }
 }
