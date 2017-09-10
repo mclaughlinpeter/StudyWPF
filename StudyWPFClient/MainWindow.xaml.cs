@@ -192,13 +192,27 @@ namespace StudyWPFClient
         private void timerExpander_Expanded(object sender, RoutedEventArgs e)
         {
             durationHours.IsEnabled = false;
+            durationHours.Opacity = 0.5;
+            lblHours.Opacity = 0.5;
+
             durationMinutes.IsEnabled = false;
+            durationMinutes.Opacity = 0.5;
+            lblMinutes.Opacity = 0.5;
+
+            lblManual.Opacity = 0.5;
         }
 
         private void timerExpander_Collapsed(object sender, RoutedEventArgs e)
         {
             durationHours.IsEnabled = true;
+            durationHours.Opacity = 1.0;
+            lblHours.Opacity = 1.0;
+
             durationMinutes.IsEnabled = true;
+            durationMinutes.Opacity = 1.0;
+            lblMinutes.Opacity = 1.0;
+
+            lblManual.Opacity = 1.0;
         }
     }
 }

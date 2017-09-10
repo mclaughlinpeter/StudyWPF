@@ -43,8 +43,8 @@
                         <DatePicker x:Name="studyDate" Grid.Column="1" Grid.Row="0" Margin="5, 2, 5, 2"/>
                         <Label Grid.Column="0" Grid.Row="1" Content="Duration" VerticalAlignment="Center"/>                        
                         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Label Content="Manual:" />
-                            <Label Content="hh" Margin="10, 0, 0, 0" />
+                            <Label x:Name="lblManual" Content="Manual:" />
+                            <Label x:Name="lblHours" Content="hh" Margin="10, 0, 0, 0" />
                             <ComboBox x:Name="durationHours" Margin="2, 2, 20, 2" Width="45" SelectedIndex="0" IsEnabled="True">
                                 <ComboBoxItem Content="0"/>
                                 <ComboBoxItem Content="1"/>
@@ -52,7 +52,7 @@
                                 <ComboBoxItem Content="3"/>
                                 <ComboBoxItem Content="4"/>
                             </ComboBox>
-                            <Label Content="mm" Margin="10, 0, 0, 0" />
+                            <Label x:Name="lblMinutes" Content="mm" Margin="10, 0, 0, 0" />
                             <ComboBox x:Name="durationMinutes" Margin="2, 2, 20, 2" Width="45" SelectedIndex="0" IsEnabled="True">
                                 <ComboBoxItem Content="00"/>
                                 <ComboBoxItem Content="15"/>
