@@ -65,32 +65,47 @@ namespace StudyWPFClient
         {
             Entry newEntry = new Entry();
 
+            //  obtain subject
             newEntry.Subject = this.studySubjects.SelectedItem?.ToString() ?? "No subject";
 
-            int hours = 0;
-            try
+            //  obtain duration 
+            if (timerExpander.IsExpanded)
             {
-                hours = Convert.ToInt32((this.durationHours.SelectedItem as ComboBoxItem)?.Content.ToString());
+                newEntry.Duration = timerDuration;
+                if (timer.IsEnabled)
+                    timer.Stop();
+                timerDuration = TimeSpan.Zero;
+                lblTimer.Content = timerDuration.ToString("c");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
-                return;
-            }
+                int hours = 0;
+                try
+                {
+                    hours = Convert.ToInt32((this.durationHours.SelectedItem as ComboBoxItem)?.Content.ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
 
-            int minutes = 0;
-            try
-            {
-                minutes = Convert.ToInt32((this.durationMinutes.SelectedItem as ComboBoxItem)?.Content.ToString());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
+                int minutes = 0;
+                try
+                {
+                    minutes = Convert.ToInt32((this.durationMinutes.SelectedItem as ComboBoxItem)?.Content.ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
 
-            newEntry.Duration = new TimeSpan(hours, minutes, 0);
+                //  set duration with manual values from UI
+                newEntry.Duration = new TimeSpan(hours, minutes, 0);
+            }                        
 
+            //  obtain date
             try
             {
                 newEntry.DateTimeStamp = (DateTime)studyDate.SelectedDate;
@@ -100,6 +115,7 @@ namespace StudyWPFClient
                 newEntry.DateTimeStamp = DateTime.Now;
             }
 
+            //  write entry to database
             try
             {
                 using (var repo = new EntryRepo())
@@ -113,6 +129,7 @@ namespace StudyWPFClient
                 return;
             }            
 
+            //  confirm successful write to database
             MessageAnimation("Db write successful");
         }
 
