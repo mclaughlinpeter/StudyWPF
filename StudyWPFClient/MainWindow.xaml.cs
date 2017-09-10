@@ -200,6 +200,7 @@ namespace StudyWPFClient
             lblMinutes.Opacity = 0.5;
 
             lblManual.Opacity = 0.5;
+            timerExpanderHeader.Opacity = 1.0;
         }
 
         private void timerExpander_Collapsed(object sender, RoutedEventArgs e)
@@ -213,6 +214,7 @@ namespace StudyWPFClient
             lblMinutes.Opacity = 1.0;
 
             lblManual.Opacity = 1.0;
+            timerExpanderHeader.Opacity = 0.5;
         }
     }
 }

@@ -44,15 +44,15 @@
                         <Label Grid.Column="0" Grid.Row="1" Content="Duration" VerticalAlignment="Center"/>                        
                         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
                             <Label x:Name="lblManual" Content="Manual:" />
-                            <Label x:Name="lblHours" Content="hh" Margin="10, 0, 0, 0" />
-                            <ComboBox x:Name="durationHours" Margin="2, 2, 20, 2" Width="45" SelectedIndex="0" IsEnabled="True">
+                            <Label x:Name="lblHours" Content="hh" Margin="30, 0, 0, 0" />
+                            <ComboBox x:Name="durationHours" Margin="2, 2, 10, 2" Width="45" SelectedIndex="0" IsEnabled="True">
                                 <ComboBoxItem Content="0"/>
                                 <ComboBoxItem Content="1"/>
                                 <ComboBoxItem Content="2"/>
                                 <ComboBoxItem Content="3"/>
                                 <ComboBoxItem Content="4"/>
                             </ComboBox>
-                            <Label x:Name="lblMinutes" Content="mm" Margin="10, 0, 0, 0" />
+                            <Label x:Name="lblMinutes" Content="mm" Margin="8, 0, 0, 0" />
                             <ComboBox x:Name="durationMinutes" Margin="2, 2, 20, 2" Width="45" SelectedIndex="0" IsEnabled="True">
                                 <ComboBoxItem Content="00"/>
                                 <ComboBoxItem Content="15"/>
@@ -60,7 +60,10 @@
                                 <ComboBoxItem Content="45"/>
                             </ComboBox>
                         </StackPanel>
-                        <Expander x:Name="timerExpander" Grid.Column="1" Grid.Row="2" Header="Use Timer" Expanded="timerExpander_Expanded" Collapsed="timerExpander_Collapsed">
+                        <Expander x:Name="timerExpander" Grid.Column="1" Grid.Row="2" Expanded="timerExpander_Expanded" Collapsed="timerExpander_Collapsed">
+                            <Expander.Header>
+                                <TextBlock x:Name="timerExpanderHeader" Opacity="0.5">Use Timer</TextBlock>
+                            </Expander.Header>
                             <StackPanel Orientation="Horizontal">
                                 <Label x:Name="lblTimer" Height="Auto" Width="175" Margin="5, 5, 5, 2" VerticalContentAlignment="Center" Content="00:00:00" FontFamily="Arial" FontSize="40" Background="#FFBFBFBF" BorderBrush="#FF5F5F5F" BorderThickness="2">
                                     <Label.Resources>
