@@ -216,5 +216,10 @@ namespace StudyWPFClient
             lblManual.Opacity = 1.0;
             timerExpanderHeader.Opacity = 0.5;
         }
+
+        private void btnNewSubject_Click(object sender, RoutedEventArgs e)
+        {
+                  
+        }
     }
 }

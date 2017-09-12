@@ -23,8 +23,24 @@
                             <ColumnDefinition Width="Auto" SharedSizeGroup="Labels"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="Subject"/>
-                        <ComboBox x:Name="studySubjects" Grid.Column="1" Margin="5, 2, 5, 2" />
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="0" Grid.Row="0" Content="Subject"/>
+                        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
+                            <Label Content="Existing:" />
+                            <ComboBox x:Name="studySubjects" Margin="5, 2, 5, 2" Width="191" />
+                        </StackPanel>
+                        <Expander Grid.Column="1" Grid.Row="1" Margin="0, 2, 0, 5">
+                            <Expander.Header>
+                                <TextBlock>New Subject</TextBlock>
+                            </Expander.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox x:Name="txtNewSubject" Width="100" Margin="5, 4, 10, 2" FontSize="15" />
+                                <Button x:Name="btnNewSubject" Width="60" Margin="0, 4, 0, 2" Content="Validate" Click="btnNewSubject_Click" />
+                            </StackPanel>
+                        </Expander>
                     </Grid>
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
