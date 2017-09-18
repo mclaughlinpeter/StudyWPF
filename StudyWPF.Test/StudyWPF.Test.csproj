@@ -48,11 +48,21 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="EntryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudyDAL\StudyDAL.csproj">
+      <Project>{087164a4-cab6-40fa-926a-1007956f47f5}</Project>
+      <Name>StudyDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudyWPFClient\StudyWPFClient.csproj">
+      <Project>{2c92b747-ca98-48d2-95e0-830e12cba705}</Project>
+      <Name>StudyWPFClient</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
