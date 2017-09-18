@@ -32,12 +32,12 @@
                             <Label Content="Existing:" />
                             <ComboBox x:Name="studySubjects" Margin="5, 2, 5, 2" Width="191" />
                         </StackPanel>
-                        <Expander Grid.Column="1" Grid.Row="1" Margin="0, 2, 0, 5">
+                        <Expander x:Name="newSubjectExpander" Grid.Column="1" Grid.Row="1" Margin="0, 2, 0, 5" Expanded="newSubjectExpander_Expanded" Collapsed="newSubjectExpander_Collapsed">
                             <Expander.Header>
-                                <TextBlock>New Subject</TextBlock>
+                                <TextBlock x:Name="newSubjectExpanderHeader" Opacity="0.5">New Subject</TextBlock>
                             </Expander.Header>
                             <StackPanel Orientation="Horizontal">
-                                <TextBox x:Name="txtNewSubject" Width="100" Margin="5, 4, 10, 2" FontSize="15" />
+                                <TextBox x:Name="txtNewSubject" Width="150" Margin="5, 4, 10, 2" Padding="2" FontSize="12" />
                                 <Button x:Name="btnNewSubject" Width="60" Margin="0, 4, 0, 2" Content="Validate" Click="btnNewSubject_Click" />
                             </StackPanel>
                         </Expander>

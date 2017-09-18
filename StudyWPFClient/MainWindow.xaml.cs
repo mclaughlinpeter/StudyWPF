@@ -221,5 +221,15 @@ namespace StudyWPFClient
         {
                   
         }
+
+        private void newSubjectExpander_Expanded(object sender, RoutedEventArgs e)
+        {
+            newSubjectExpanderHeader.Opacity = 1.0;
+        }
+
+        private void newSubjectExpander_Collapsed(object sender, RoutedEventArgs e)
+        {
+            newSubjectExpanderHeader.Opacity = 0.5;
+        }
     }
 }
