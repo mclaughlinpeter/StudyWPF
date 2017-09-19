@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using StudyDAL.Models;
 using StudyDAL.Repos;
+using StudyWPFClient.ViewModels;
 using System.Windows.Media.Animation;
 
 namespace StudyWPFClient
@@ -32,7 +33,9 @@ namespace StudyWPFClient
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new MainWindowViewModel();
 
+            /*
             try
             {
                 using (var repo = new EntryRepo())
@@ -46,15 +49,16 @@ namespace StudyWPFClient
                 Environment.Exit(1);
             }            
 
-            /*{
-                new Entry { EntryID = 1, Subject = "C#", Duration = new TimeSpan(2, 30, 0), DateTimeStamp = DateTime.Now.AddHours(1) },
-                new Entry { EntryID = 2, Subject = "JS", Duration = new TimeSpan(0, 45, 0), DateTimeStamp = DateTime.Now.AddMinutes(30) },
-                new Entry { EntryID = 3, Subject = "C++", Duration = new TimeSpan(1, 15, 0), DateTimeStamp = DateTime.Now.AddDays(2) },
-                new Entry { EntryID = 4, Subject = "Linux", Duration = new TimeSpan(0, 30, 0), DateTimeStamp = DateTime.Now.AddMonths(1) },
-                new Entry { EntryID = 5, Subject = "C++", Duration = new TimeSpan(1, 30, 0), DateTimeStamp = DateTime.Now.AddDays(3) },
-                new Entry { EntryID = 6, Subject = "Linux", Duration = new TimeSpan(0, 45, 0), DateTimeStamp = DateTime.Now.AddMonths(2) }
-            };*/
+            //{
+            //    new Entry { EntryID = 1, Subject = "C#", Duration = new TimeSpan(2, 30, 0), DateTimeStamp = DateTime.Now.AddHours(1) },
+            //    new Entry { EntryID = 2, Subject = "JS", Duration = new TimeSpan(0, 45, 0), DateTimeStamp = DateTime.Now.AddMinutes(30) },
+            //    new Entry { EntryID = 3, Subject = "C++", Duration = new TimeSpan(1, 15, 0), DateTimeStamp = DateTime.Now.AddDays(2) },
+            //    new Entry { EntryID = 4, Subject = "Linux", Duration = new TimeSpan(0, 30, 0), DateTimeStamp = DateTime.Now.AddMonths(1) },
+            //    new Entry { EntryID = 5, Subject = "C++", Duration = new TimeSpan(1, 30, 0), DateTimeStamp = DateTime.Now.AddDays(3) },
+            //    new Entry { EntryID = 6, Subject = "Linux", Duration = new TimeSpan(0, 45, 0), DateTimeStamp = DateTime.Now.AddMonths(2) }
+            //};
             studySubjects.ItemsSource = new HashSet<string>(from e in _entries select e.Subject);
+            */
 
             //  Setup DispatcherTimer
             timer.Interval = TimeSpan.FromSeconds(1);
