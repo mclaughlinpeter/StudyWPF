@@ -15,6 +15,8 @@ namespace StudyWPFClient.ViewModels
 
         public IList<string> uniqueSubjects { get; set; }
 
+        public string newSubject { get; set; }
+
         public MainWindowViewModel()
         {
             try

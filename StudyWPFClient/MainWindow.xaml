@@ -37,7 +37,15 @@
                                 <TextBlock x:Name="newSubjectExpanderHeader" Opacity="0.5">New Subject</TextBlock>
                             </Expander.Header>
                             <StackPanel Orientation="Horizontal">
-                                <TextBox x:Name="txtNewSubject" Width="150" Margin="5, 4, 10, 2" Padding="2" FontSize="12" />
+                                <TextBox x:Name="txtNewSubject" Width="150" Margin="5, 4, 10, 2" Padding="2" FontSize="12">
+                                    <TextBox.Text>
+                                        <Binding Path="newSubject" UpdateSourceTrigger="LostFocus">
+                                            <Binding.ValidationRules>
+                                                <local:NewSubjectRule />
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
                                 <Button x:Name="btnNewSubject" Width="60" Margin="0, 4, 0, 2" Content="Validate" Click="btnNewSubject_Click" />
                             </StackPanel>
                         </Expander>
