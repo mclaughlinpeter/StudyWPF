@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudyWPFClient"
+        xmlns:vr="clr-namespace:StudyWPFClient.ViewModels.ValidationRules"
         mc:Ignorable="d"
         Title="Study Application" Height="350" Width="341.515" ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner">
@@ -41,7 +42,7 @@
                                     <TextBox.Text>
                                         <Binding Path="newSubject" UpdateSourceTrigger="LostFocus">
                                             <Binding.ValidationRules>
-                                                <local:NewSubjectRule />
+                                                <vr:NewSubjectRule/>
                                             </Binding.ValidationRules>
                                         </Binding>
                                     </TextBox.Text>

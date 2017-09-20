@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace StudyWPFClient
+namespace StudyWPFClient.ViewModels.ValidationRules
 {
     public class NewSubjectRule : ValidationRule
     {
