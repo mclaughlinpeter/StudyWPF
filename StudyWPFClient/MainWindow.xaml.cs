@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using StudyDAL.Models;
 using StudyDAL.Repos;
 using StudyWPFClient.ViewModels;
+using StudyWPFClient.ViewModels.ValidationRules;
 using System.Windows.Media.Animation;
 
 namespace StudyWPFClient
@@ -25,6 +26,8 @@ namespace StudyWPFClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainWindowViewModel viewModel;
+
         readonly IList<Entry> _entries;
 
         DispatcherTimer timer = new DispatcherTimer();
@@ -33,7 +36,14 @@ namespace StudyWPFClient
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new MainWindowViewModel();
+
+            viewModel = new MainWindowViewModel();
+            this.DataContext = viewModel;
+
+            //NewSubjectRule rule = new NewSubjectRule();
+            //rule.subjectsWrapper = new Wrapper();
+            //rule.subjectsWrapper.UniqueSubjects = viewModel.uniqueSubjects;
+            //txtNewSubject.BindingGroup.ValidationRules.Add(rule);
 
             /*
             try
@@ -223,7 +233,13 @@ namespace StudyWPFClient
 
         private void btnNewSubject_Click(object sender, RoutedEventArgs e)
         {
-                  
+            NewSubjectRule rule = new NewSubjectRule();
+            rule.subjectsWrapper = new Wrapper();
+            rule.subjectsWrapper.UniqueSubjects = viewModel.uniqueSubjects;
+            //txtNewSubject.BindingGroup.ValidationRules.Add(rule);
+            txtNewSubjectBinding.ValidationRules.Add(rule);
+
+            MessageAnimation("Validation rule added");
         }
 
         private void newSubjectExpander_Expanded(object sender, RoutedEventArgs e)

@@ -40,10 +40,16 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBox x:Name="txtNewSubject" Width="150" Margin="5, 4, 10, 2" Padding="2" FontSize="12">
                                     <TextBox.Text>
-                                        <Binding Path="newSubject" UpdateSourceTrigger="LostFocus">
+                                        <Binding x:Name="txtNewSubjectBinding" Path="newSubject" UpdateSourceTrigger="LostFocus">
+                                            <!--
                                             <Binding.ValidationRules>
-                                                <vr:NewSubjectRule/>
+                                                <vr:NewSubjectRule>
+                                                    <vr:NewSubjectRule.subjectsWrapper>
+                                                        <vr:Wrapper UniqueSubjects="{Binding Path=uniqueSubjects}"/>
+                                                    </vr:NewSubjectRule.subjectsWrapper>
+                                                </vr:NewSubjectRule>
                                             </Binding.ValidationRules>
+                                            -->
                                         </Binding>
                                     </TextBox.Text>
                                 </TextBox>
