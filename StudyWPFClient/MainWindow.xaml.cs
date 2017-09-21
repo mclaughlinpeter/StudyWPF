@@ -232,13 +232,14 @@ namespace StudyWPFClient
 
         private void btnNewSubject_Click(object sender, RoutedEventArgs e)
         {
-            //  TO DO  if not empty and no errors
-
-            if (txtNewSubject.Text != "")
+            if (txtNewSubject.Text != "" && !(Validation.GetHasError(txtNewSubject)))
             {
                 viewModel.uniqueSubjects.Add(txtNewSubject.Text);
                 MessageAnimation("New subject added");
+                txtNewSubject.Text = "";
             }
+            else
+                MessageAnimation("Invalid subject");
         }
 
         private void newSubjectExpander_Expanded(object sender, RoutedEventArgs e)

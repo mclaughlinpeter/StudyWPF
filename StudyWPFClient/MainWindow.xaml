@@ -40,7 +40,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBox x:Name="txtNewSubject" Width="150" Margin="5, 4, 10, 2" Padding="2" FontSize="12">
                                     <TextBox.Text>
-                                        <Binding x:Name="txtNewSubjectBinding" Path="newSubject" UpdateSourceTrigger="LostFocus">
+                                        <Binding x:Name="txtNewSubjectBinding" Path="newSubject" UpdateSourceTrigger="PropertyChanged">
                                             <!--
                                             <Binding.ValidationRules>
                                                 <vr:NewSubjectRule>
