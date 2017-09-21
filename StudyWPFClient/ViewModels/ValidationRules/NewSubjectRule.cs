@@ -15,23 +15,7 @@ namespace StudyWPFClient.ViewModels.ValidationRules
 
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            string test = "badSubject";
-
-            //if ((string)value == test)
-            //{
-            //    return new ValidationResult(false, "bad subject");
-            //}
-            //else
-            //    return new ValidationResult(true, null);
-
-            //if (subjectsWrapper.UniqueSubjects == null)
-            //{
-            //    return new ValidationResult(false, "bad subject");
-            //}
-            //else
-            //    return new ValidationResult(true, null);
-
-            if (subjectsWrapper.UniqueSubjects.Contains((string)value))
+            if (subjectsWrapper.UniqueSubjects.Contains((string)value) || ((string)value).Length > 30)
             {
                 return new ValidationResult(false, "bad subject");
             }

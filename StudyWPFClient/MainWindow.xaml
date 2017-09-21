@@ -35,7 +35,7 @@
                         </StackPanel>
                         <Expander x:Name="newSubjectExpander" Grid.Column="1" Grid.Row="1" Margin="0, 2, 0, 5" Expanded="newSubjectExpander_Expanded" Collapsed="newSubjectExpander_Collapsed">
                             <Expander.Header>
-                                <TextBlock x:Name="newSubjectExpanderHeader" Opacity="0.5">New Subject</TextBlock>
+                                <TextBlock x:Name="newSubjectExpanderHeader" Opacity="0.5">Enter New Subject</TextBlock>
                             </Expander.Header>
                             <StackPanel Orientation="Horizontal">
                                 <TextBox x:Name="txtNewSubject" Width="150" Margin="5, 4, 10, 2" Padding="2" FontSize="12">
