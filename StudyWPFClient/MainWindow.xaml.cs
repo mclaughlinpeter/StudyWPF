@@ -40,10 +40,9 @@ namespace StudyWPFClient
             viewModel = new MainWindowViewModel();
             this.DataContext = viewModel;
 
-            //NewSubjectRule rule = new NewSubjectRule();
-            //rule.subjectsWrapper = new Wrapper();
-            //rule.subjectsWrapper.UniqueSubjects = viewModel.uniqueSubjects;
-            //txtNewSubject.BindingGroup.ValidationRules.Add(rule);
+            NewSubjectRule rule = new NewSubjectRule { subjectsWrapper = new Wrapper() };
+            rule.subjectsWrapper.UniqueSubjects = viewModel.uniqueSubjects;
+            txtNewSubjectBinding.ValidationRules.Add(rule);
 
             /*
             try
@@ -233,13 +232,7 @@ namespace StudyWPFClient
 
         private void btnNewSubject_Click(object sender, RoutedEventArgs e)
         {
-            NewSubjectRule rule = new NewSubjectRule();
-            rule.subjectsWrapper = new Wrapper();
-            rule.subjectsWrapper.UniqueSubjects = viewModel.uniqueSubjects;
-            //txtNewSubject.BindingGroup.ValidationRules.Add(rule);
-            txtNewSubjectBinding.ValidationRules.Add(rule);
-
-            MessageAnimation("Validation rule added");
+            
         }
 
         private void newSubjectExpander_Expanded(object sender, RoutedEventArgs e)
