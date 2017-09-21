@@ -53,7 +53,7 @@
                                         </Binding>
                                     </TextBox.Text>
                                 </TextBox>
-                                <Button x:Name="btnNewSubject" Width="60" Margin="0, 4, 0, 2" Content="Validate" Click="btnNewSubject_Click" />
+                                <Button x:Name="btnNewSubject" Width="60" Margin="0, 4, 0, 2" Content="Add" Click="btnNewSubject_Click" />
                             </StackPanel>
                         </Expander>
                     </Grid>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace StudyWPFClient.ViewModels
     {
         readonly IList<Entry> _entries;
 
-        public IList<string> uniqueSubjects { get; set; }
+        public ObservableCollection<string> uniqueSubjects { get; set; }
 
         public string newSubject { get; set; }
 
@@ -32,7 +33,7 @@ namespace StudyWPFClient.ViewModels
                 Environment.Exit(1);
             }
 
-            uniqueSubjects = (new HashSet<string>(from e in _entries orderby e.Subject select e.Subject)).ToList();
+            uniqueSubjects = new ObservableCollection<string>((new HashSet<string>(from e in _entries orderby e.Subject select e.Subject)).ToList());
         }
     }
 }
