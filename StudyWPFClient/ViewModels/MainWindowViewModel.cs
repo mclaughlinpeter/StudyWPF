@@ -33,7 +33,8 @@ namespace StudyWPFClient.ViewModels
                 Environment.Exit(1);
             }
 
-            uniqueSubjects = new ObservableCollection<string>((new HashSet<string>(from e in _entries orderby e.Subject select e.Subject)).ToList());
+            //uniqueSubjects = new ObservableCollection<string>((new HashSet<string>(from e in _entries orderby e.Subject select e.Subject)).ToList());
+            uniqueSubjects = new ObservableCollection<string>(_entries.Select(e => e.Subject).Distinct().OrderBy(s => s));
         }
     }
 }
