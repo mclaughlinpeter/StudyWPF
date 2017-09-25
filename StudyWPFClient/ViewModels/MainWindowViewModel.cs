@@ -6,7 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using StudyDAL.Models;
 using StudyDAL.Repos;
+using StudyWPFClient.Cmds;
 using System.Windows;
+using System.Windows.Input;
 
 namespace StudyWPFClient.ViewModels
 {
@@ -17,6 +19,9 @@ namespace StudyWPFClient.ViewModels
         public ObservableCollection<string> uniqueSubjects { get; set; }
 
         public string newSubject { get; set; }
+
+        private ICommand _addSubjectCmd = null;
+        public ICommand AddSubjectCmd => _addSubjectCmd ?? (_addSubjectCmd = new AddSubjectCommand(uniqueSubjects));
 
         public MainWindowViewModel()
         {

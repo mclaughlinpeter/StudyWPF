@@ -33,6 +33,11 @@ namespace StudyWPFClient
         DispatcherTimer timer = new DispatcherTimer();
         TimeSpan timerDuration = new TimeSpan(0, 0, 0);
 
+        public bool SubjectError
+        {
+            get => Validation.GetHasError(txtNewSubject);
+        }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -43,6 +48,8 @@ namespace StudyWPFClient
             NewSubjectRule rule = new NewSubjectRule { subjectsWrapper = new Wrapper() };
             rule.subjectsWrapper.UniqueSubjects = viewModel.uniqueSubjects;
             txtNewSubjectBinding.ValidationRules.Add(rule);
+
+            btnNewSubject.CommandParameter = true;            
 
             /*
             try
