@@ -49,7 +49,7 @@ namespace StudyWPFClient
             //rule.subjectsWrapper.UniqueSubjects = viewModel.uniqueSubjects;
             //txtNewSubjectBinding.ValidationRules.Add(rule);
 
-            btnNewSubject.CommandParameter = true;            
+            //btnNewSubject.CommandParameter = string.Empty;           
 
             /*
             try

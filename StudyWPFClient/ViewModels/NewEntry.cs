@@ -40,9 +40,9 @@ namespace StudyWPFClient.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
+                
         //  IDataErrorInfo
-        public string Error { get; }
+        public string Error { get; set; }
 
         public string this[string columnName]
         {
@@ -55,12 +55,14 @@ namespace StudyWPFClient.ViewModels
                     case nameof(NewSubject):
                         if (NewSubject == "badSubject")
                         {
+                            this.Error = "Bad Subject";
                             return "Bad Subject";
                         }
                         break;
                     case nameof(NewDuration):
                         break;
                 }
+                this.Error = string.Empty;
                 return string.Empty;
             }
         }

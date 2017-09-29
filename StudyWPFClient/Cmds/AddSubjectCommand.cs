@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using StudyWPFClient.ViewModels;
 
 namespace StudyWPFClient.Cmds
 {
@@ -24,7 +25,7 @@ namespace StudyWPFClient.Cmds
 
         public bool CanExecute(object parameter)
         {
-            if (((bool)parameter) == true)
+            if (((NewEntry)parameter)?.Error != string.Empty)
             {
                 return false;
             }

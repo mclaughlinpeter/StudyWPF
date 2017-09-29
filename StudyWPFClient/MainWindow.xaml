@@ -54,7 +54,8 @@
                                     </TextBox.Text>
                                 </TextBox>
                                 <Button x:Name="btnNewSubject" Width="60" Margin="0, 4, 0, 2" Content="Add" 
-                                        Command="{Binding Path=DataContext.AddSubjectCmd, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+                                        Command="{Binding Path=DataContext.AddSubjectCmd, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" 
+                                        CommandParameter="{Binding Path=DataContext.newEntry, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"/>
                             </StackPanel>
                         </Expander>
                     </Grid>
