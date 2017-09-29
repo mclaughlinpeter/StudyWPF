@@ -45,9 +45,9 @@ namespace StudyWPFClient
             viewModel = new MainWindowViewModel();
             this.DataContext = viewModel;
 
-            NewSubjectRule rule = new NewSubjectRule { subjectsWrapper = new Wrapper() };
-            rule.subjectsWrapper.UniqueSubjects = viewModel.uniqueSubjects;
-            txtNewSubjectBinding.ValidationRules.Add(rule);
+            //NewSubjectRule rule = new NewSubjectRule { subjectsWrapper = new Wrapper() };
+            //rule.subjectsWrapper.UniqueSubjects = viewModel.uniqueSubjects;
+            //txtNewSubjectBinding.ValidationRules.Add(rule);
 
             btnNewSubject.CommandParameter = true;            
 

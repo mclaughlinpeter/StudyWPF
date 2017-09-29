@@ -40,17 +40,17 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBox x:Name="txtNewSubject" Width="150" Margin="5, 4, 10, 2" Padding="2" FontSize="12">
                                     <TextBox.Text>
-                                        <Binding x:Name="txtNewSubjectBinding" Path="newSubject" UpdateSourceTrigger="PropertyChanged">
-                                            <!--
+                                        <Binding Path="newEntry.NewSubject" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True">                                            
+                                        </Binding>
+                                        <!--<Binding x:Name="txtNewSubjectBinding" Path="newSubject" UpdateSourceTrigger="PropertyChanged">                                            
                                             <Binding.ValidationRules>
                                                 <vr:NewSubjectRule>
                                                     <vr:NewSubjectRule.subjectsWrapper>
                                                         <vr:Wrapper UniqueSubjects="{Binding Path=uniqueSubjects}"/>
                                                     </vr:NewSubjectRule.subjectsWrapper>
                                                 </vr:NewSubjectRule>
-                                            </Binding.ValidationRules>
-                                            -->
-                                        </Binding>
+                                            </Binding.ValidationRules>                                            
+                                        </Binding>-->
                                     </TextBox.Text>
                                 </TextBox>
                                 <Button x:Name="btnNewSubject" Width="60" Margin="0, 4, 0, 2" Content="Add" 

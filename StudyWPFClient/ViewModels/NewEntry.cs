@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudyWPFClient.ViewModels
 {
-    public class NewEntry : INotifyPropertyChanged
+    public class NewEntry : INotifyPropertyChanged, IDataErrorInfo
     {
         private readonly IList<string> uniSub;
 
@@ -16,28 +16,53 @@ namespace StudyWPFClient.ViewModels
             uniSub = uniqueSubjects;
         }
 
-        public DateTime DateTimeStamp { get; set; }
+        public DateTime NewDateTimeStamp { get; set; }
 
-        private string _subject;
-        public string Subject
+        private string _newSubject;
+        public string NewSubject
         {
-            get { return _subject; }
+            get { return _newSubject; }
             set
             {
-                if (value == _subject)
+                if (value == _newSubject)
                     return;
-                _subject = value;
-                OnPropertyChanged(nameof(Subject));
+                _newSubject = value;
+                OnPropertyChanged(nameof(NewSubject));
             }
         }
 
-        public TimeSpan Duration { get; set; }
-
+        public TimeSpan NewDuration { get; set; }
+        
+        //  INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 
         internal void OnPropertyChanged(string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        //  IDataErrorInfo
+        public string Error { get; }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                switch (columnName)
+                {
+                    case nameof(NewDateTimeStamp):
+                        break;
+                    case nameof(NewSubject):
+                        if (NewSubject == "badSubject")
+                        {
+                            return "Bad Subject";
+                        }
+                        break;
+                    case nameof(NewDuration):
+                        break;
+                }
+                return string.Empty;
+            }
         }
     }
 }

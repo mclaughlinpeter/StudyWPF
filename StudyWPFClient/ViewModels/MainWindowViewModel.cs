@@ -20,6 +20,8 @@ namespace StudyWPFClient.ViewModels
 
         public string newSubject { get; set; }
 
+        public NewEntry newEntry { get; set; }
+
         private ICommand _addSubjectCmd = null;
         public ICommand AddSubjectCmd => _addSubjectCmd ?? (_addSubjectCmd = new AddSubjectCommand(uniqueSubjects));
 
@@ -40,6 +42,8 @@ namespace StudyWPFClient.ViewModels
 
             //uniqueSubjects = new ObservableCollection<string>((new HashSet<string>(from e in _entries orderby e.Subject select e.Subject)).ToList());
             uniqueSubjects = new ObservableCollection<string>(_entries.Select(e => e.Subject).Distinct().OrderBy(s => s));
+
+            newEntry = new NewEntry(uniqueSubjects);
         }
     }
 }
