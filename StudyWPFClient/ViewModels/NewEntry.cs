@@ -53,10 +53,10 @@ namespace StudyWPFClient.ViewModels
                     case nameof(NewDateTimeStamp):
                         break;
                     case nameof(NewSubject):
-                        if (NewSubject == "badSubject")
+                        if (uniSub.Contains(NewSubject))
                         {
-                            this.Error = "Bad Subject";
-                            return "Bad Subject";
+                            this.Error = "Subject already exists";
+                            return "Subject already exists";
                         }
                         break;
                     case nameof(NewDuration):
