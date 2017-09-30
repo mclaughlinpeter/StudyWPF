@@ -35,7 +35,7 @@ namespace StudyWPFClient.Cmds
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            _uniqueSubjects.Add(((NewEntry)parameter)?.NewSubject);
         }
     }
 }
