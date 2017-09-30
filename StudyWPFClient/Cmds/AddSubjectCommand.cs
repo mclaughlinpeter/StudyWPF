@@ -10,11 +10,11 @@ namespace StudyWPFClient.Cmds
 {
     public class AddSubjectCommand : ICommand
     {
-        private readonly IList<string> _uniqueSubjects;
+        private readonly MainWindowViewModel viewModel;
 
-        public AddSubjectCommand(IList<string> uniqueSubjects)
+        public AddSubjectCommand(MainWindowViewModel vM)
         {
-            _uniqueSubjects = uniqueSubjects;
+            viewModel = vM;
         }
 
         public event EventHandler CanExecuteChanged
@@ -35,7 +35,8 @@ namespace StudyWPFClient.Cmds
 
         public void Execute(object parameter)
         {
-            _uniqueSubjects.Add(((NewEntry)parameter)?.NewSubject);
+            viewModel.uniqueSubjects.Add(((NewEntry)parameter)?.NewSubject);
+            viewModel.newEntry.NewSubject = string.Empty;
         }
     }
 }
