@@ -14,12 +14,11 @@ namespace StudyWPFClient.ViewModels
         public NewEntry(IList<string> uniqueSubjects)
         {
             uniSub = uniqueSubjects;
-            NewSubject = string.Empty;
         }
 
         public DateTime NewDateTimeStamp { get; set; }
 
-        private string _newSubject;
+        private string _newSubject = string.Empty;
         public string NewSubject
         {
             get { return _newSubject; }
