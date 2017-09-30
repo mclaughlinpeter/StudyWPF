@@ -59,6 +59,11 @@ namespace StudyWPFClient.ViewModels
                             this.Error = "Subject already exists";
                             return "Subject already exists";
                         }
+                        else if (NewSubject == string.Empty)
+                        {
+                            this.Error = "New subject field is empty";
+                            return "New subject field is empty";
+                        }
                         break;
                     case nameof(NewDuration):
                         break;
