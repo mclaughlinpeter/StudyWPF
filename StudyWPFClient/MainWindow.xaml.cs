@@ -16,14 +16,10 @@ using System.Windows.Shapes;
 using StudyDAL.Models;
 using StudyDAL.Repos;
 using StudyWPFClient.ViewModels;
-using StudyWPFClient.ViewModels.ValidationRules;
 using System.Windows.Media.Animation;
 
 namespace StudyWPFClient
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         MainWindowViewModel viewModel;
@@ -48,9 +44,6 @@ namespace StudyWPFClient
             //NewSubjectRule rule = new NewSubjectRule { subjectsWrapper = new Wrapper() };
             //rule.subjectsWrapper.UniqueSubjects = viewModel.uniqueSubjects;
             //txtNewSubjectBinding.ValidationRules.Add(rule);
-
-            //btnNewSubject.CommandParameter = string.Empty;           
-
             /*
             try
             {
