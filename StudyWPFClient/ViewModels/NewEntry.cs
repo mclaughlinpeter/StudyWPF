@@ -53,12 +53,12 @@ namespace StudyWPFClient.ViewModels
                     case nameof(NewDateTimeStamp):
                         break;
                     case nameof(NewSubject):
-                        if (uniSub.Contains(NewSubject))
+                        if (uniSub.Contains(NewSubject.Trim()))
                         {
                             this.Error = "Subject already exists";
                             return "Subject already exists";
                         }
-                        else if (NewSubject == string.Empty)
+                        else if (String.IsNullOrWhiteSpace(NewSubject))
                         {
                             this.Error = "New subject field is empty";
                             return "New subject field is empty";
