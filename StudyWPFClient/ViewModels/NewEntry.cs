@@ -31,6 +31,19 @@ namespace StudyWPFClient.ViewModels
             }
         }
 
+        private string _subject;
+        public string Subject
+        {
+            get { return _subject; }
+            set
+            {
+                if (value == _subject)
+                    return;
+                _subject = value;
+                OnPropertyChanged(nameof(Subject));                
+            }
+        }
+
         public TimeSpan NewDuration { get; set; }
         
         //  INotifyPropertyChanged
