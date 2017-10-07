@@ -23,6 +23,9 @@ namespace StudyWPFClient.ViewModels
         private ICommand _addSubjectCmd = null;
         public ICommand AddSubjectCmd => _addSubjectCmd ?? (_addSubjectCmd = new AddSubjectCommand(this));
 
+        private ICommand _submitNewEntryCmd = null;
+        public ICommand SubmitNewEntryCmd => _submitNewEntryCmd ?? (_submitNewEntryCmd = new SubmitNewEntryCommand(this));
+
         public MainWindowViewModel()
         {
             try

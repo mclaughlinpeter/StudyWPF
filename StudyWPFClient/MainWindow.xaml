@@ -31,7 +31,7 @@
                         <Label Grid.Column="0" Grid.Row="0" Content="Subject"/>
                         <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
                             <Label Content="Existing:" />
-                            <ComboBox x:Name="studySubjects" Margin="5, 2, 5, 2" Width="191" ItemsSource="{Binding Path=uniqueSubjects}" SelectedItem="{Binding Path=newEntry.Subject, Mode=OneWayToSource}" />
+                            <ComboBox x:Name="studySubjects" Margin="5, 2, 5, 2" Width="191" ItemsSource="{Binding Path=uniqueSubjects}" SelectedItem="{Binding Path=newEntry.Subject, Mode=OneWayToSource, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" />
                         </StackPanel>
                         <Expander x:Name="newSubjectExpander" Grid.Column="1" Grid.Row="1" Margin="0, 2, 0, 5" Expanded="newSubjectExpander_Expanded" Collapsed="newSubjectExpander_Collapsed">
                             <Expander.Header>
@@ -112,7 +112,8 @@
                             </StackPanel>
                         </Expander>
                         <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal" Margin="0, 10, 0, 0">
-                            <Button x:Name="btnSubmitEntry" Content="Submit" Margin="5, 2, 5, 2" Width="80" Height="40" FontSize="16" Click="btnSubmitEntry_Click" />
+                            <Button x:Name="btnSubmitEntry" Content="Submit" Margin="5, 2, 5, 2" Width="80" Height="40" FontSize="16" 
+                                    Command="{Binding Path=DataContext.SubmitNewEntryCmd, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"/>
                             <Button x:Name="btnClearForm" Content="Clear" Margin="5, 2, 5, 2" Width="80" Height="40" FontSize="16" />
                         </StackPanel>
                         <Label x:Name="lblMessage" Grid.Column="1" Grid.Row="4" Content="" Height="0" Opacity="0.0"/>

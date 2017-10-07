@@ -28,6 +28,7 @@ namespace StudyWPFClient.ViewModels
                     return;
                 _newSubject = value;
                 OnPropertyChanged(nameof(NewSubject));
+                OnPropertyChanged(nameof(Subject));
             }
         }
 
@@ -78,7 +79,7 @@ namespace StudyWPFClient.ViewModels
                         }
                         break;
                     case nameof(Subject):
-                        if (Subject == null)
+                        if (String.IsNullOrEmpty(Subject))
                         {
                             this.Error = "No subject selected";
                             return "No subject selected";
