@@ -16,7 +16,7 @@ namespace StudyWPFClient.ViewModels
             uniSub = uniqueSubjects;
         }
 
-        public DateTime NewDateTimeStamp { get; set; }
+        public DateTime DateTimeStamp { get; set; }
 
         private string _newSubject = string.Empty;
         public string NewSubject
@@ -44,7 +44,7 @@ namespace StudyWPFClient.ViewModels
             }
         }
 
-        public TimeSpan NewDuration { get; set; }
+        public TimeSpan Duration { get; set; }
         
         //  INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -63,7 +63,7 @@ namespace StudyWPFClient.ViewModels
             {
                 switch (columnName)
                 {
-                    case nameof(NewDateTimeStamp):
+                    case nameof(DateTimeStamp):
                         break;
                     case nameof(NewSubject):
                         if (uniSub.Contains(NewSubject.Trim()))
@@ -77,7 +77,14 @@ namespace StudyWPFClient.ViewModels
                             return "New subject field is empty";
                         }
                         break;
-                    case nameof(NewDuration):
+                    case nameof(Subject):
+                        if (Subject == null)
+                        {
+                            this.Error = "No subject selected";
+                            return "No subject selected";
+                        }
+                        break;
+                    case nameof(Duration):
                         break;
                 }
                 this.Error = string.Empty;
