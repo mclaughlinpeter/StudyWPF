@@ -28,7 +28,6 @@ namespace StudyWPFClient.ViewModels
                     return;
                 _newSubject = value;
                 OnPropertyChanged(nameof(NewSubject));
-                OnPropertyChanged(nameof(Subject));
             }
         }
 
@@ -69,14 +68,16 @@ namespace StudyWPFClient.ViewModels
                     case nameof(NewSubject):
                         if (uniSub.Contains(NewSubject.Trim()))
                         {
-                            this.Error = "Subject already exists";
+                            this.NewSubjectError = true;
                             return "Subject already exists";
                         }
                         else if (String.IsNullOrWhiteSpace(NewSubject))
                         {
-                            this.Error = "New subject field is empty";
+                            this.NewSubjectError = true;
                             return "New subject field is empty";
                         }
+                        else
+                            this.NewSubjectError = false;
                         break;
                     case nameof(Subject):
                         if (String.IsNullOrEmpty(Subject))
@@ -84,13 +85,17 @@ namespace StudyWPFClient.ViewModels
                             this.Error = "No subject selected";
                             return "No subject selected";
                         }
+                        else
+                            this.Error = string.Empty;
                         break;
                     case nameof(Duration):
                         break;
-                }
-                this.Error = string.Empty;
+                }                
                 return string.Empty;
             }
         }
+
+        //  Error flags
+        public bool NewSubjectError { get; set; }
     }
 }

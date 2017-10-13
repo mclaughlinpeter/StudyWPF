@@ -25,7 +25,7 @@ namespace StudyWPFClient.Cmds
 
         public bool CanExecute(object parameter)
         {
-            if (((NewEntry)parameter)?.Error != string.Empty)
+            if (((NewEntry)parameter)?.NewSubjectError == true)
             {
                 return false;
             }
