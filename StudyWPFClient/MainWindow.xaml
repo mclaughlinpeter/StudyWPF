@@ -73,7 +73,7 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Label Grid.Column="0" Grid.Row="0" Content="Date" VerticalAlignment="Center"/>
-                        <DatePicker x:Name="studyDate" Grid.Column="1" Grid.Row="0" Margin="5, 2, 5, 2"/>
+                        <DatePicker x:Name="studyDate" Grid.Column="1" Grid.Row="0" Margin="5, 2, 5, 2" SelectedDate="{Binding Path=newEntry.DateTimeStamp, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
                         <Label Grid.Column="0" Grid.Row="1" Content="Duration" VerticalAlignment="Center"/>                        
                         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
                             <Label x:Name="lblManual" Content="Manual:" />

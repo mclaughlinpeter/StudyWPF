@@ -16,7 +16,19 @@ namespace StudyWPFClient.ViewModels
             uniSub = uniqueSubjects;
         }
 
-        public DateTime DateTimeStamp { get; set; }
+        private DateTime _dateTimeStamp = DateTime.Today;
+
+        public DateTime DateTimeStamp
+        {
+            get { return _dateTimeStamp; }
+            set
+            {
+                if (value == _dateTimeStamp)
+                    return;
+                _dateTimeStamp = value;
+                OnPropertyChanged(nameof(DateTimeStamp));
+            }
+        }
 
         private string _newSubject = string.Empty;
         public string NewSubject
@@ -64,6 +76,13 @@ namespace StudyWPFClient.ViewModels
                 switch (columnName)
                 {
                     case nameof(DateTimeStamp):
+                        if (DateTimeStamp < DateTime.Today)
+                        {
+                            this.Error = "Date before today";
+                            return "Date before today";
+                        }
+                        else
+                            this.Error = string.Empty;
                         break;
                     case nameof(NewSubject):
                         if (uniSub.Contains(NewSubject.Trim()))
