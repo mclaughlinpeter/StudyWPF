@@ -20,5 +20,18 @@ namespace StudyWPF.Test
             //  Assert
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void Test_Method_2()
+        {
+            //  Arrange
+            
+
+            //  Act
+           
+
+            //  Assert
+            
+        }
     }
 }
