@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudyWPFClient"
         xmlns:vr="clr-namespace:StudyWPFClient.ViewModels.ValidationRules"
+        xmlns:conv="clr-namespace:StudyWPFClient.Converters"
         mc:Ignorable="d"
         Title="Study Application" Height="350" Width="341.515" ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner">
     <Window.Resources>
-        
+        <conv:ComboBoxDurationConverter x:Key="DurationConverter1"/>
     </Window.Resources>
     <Grid>
         <TabControl x:Name="studyTabControl" HorizontalAlignment="Left" Height="311" VerticalAlignment="Top" Width="326">
@@ -78,7 +79,7 @@
                         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
                             <Label x:Name="lblManual" Content="Manual:" />
                             <Label x:Name="lblHours" Content="hh" Margin="30, 0, 0, 0" />
-                            <ComboBox x:Name="durationHours" Margin="2, 2, 10, 2" Width="45" SelectedIndex="0" IsEnabled="True">
+                            <ComboBox x:Name="durationHours" Margin="2, 2, 10, 2" Width="45" SelectedIndex="0" IsEnabled="True" SelectedItem="{Binding Path=newEntry.Duration, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource, Converter={StaticResource DurationConverter1}, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}">
                                 <ComboBoxItem Content="0"/>
                                 <ComboBoxItem Content="1"/>
                                 <ComboBoxItem Content="2"/>

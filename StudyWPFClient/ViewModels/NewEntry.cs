@@ -56,7 +56,17 @@ namespace StudyWPFClient.ViewModels
             }
         }
 
-        public TimeSpan Duration { get; set; }
+        private TimeSpan _duration;
+        public TimeSpan Duration
+        {
+            get { return _duration; }
+            set
+            {
+                if (value == _duration)
+                    return;
+                _duration = value;
+            }
+        }
         
         //  INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
