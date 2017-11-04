@@ -45,5 +45,28 @@ namespace StudyWPFClient.ViewModels
 
             newEntry = new NewEntry(uniqueSubjects);
         }
+
+        public void SaveEntry()
+        {
+            Entry entry = NewEntryToEntry(newEntry);
+
+            try
+            {
+                using (var repo = new EntryRepo())
+                {
+                    repo.Add(entry);
+                }
+            }
+            catch (Exception)
+            {
+                //  TO DO: determine how to handle this
+                return;
+            }
+        }
+
+        private Entry NewEntryToEntry(NewEntry newEntry)
+        {
+            return new Entry() { DateTimeStamp = newEntry.DateTimeStamp, Subject = newEntry.Subject, Duration = newEntry.Duration };
+        }
     }
 }
