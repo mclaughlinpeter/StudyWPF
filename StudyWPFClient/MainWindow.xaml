@@ -41,7 +41,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBox x:Name="txtNewSubject" Width="150" Margin="5, 4, 10, 2" Padding="2" FontSize="12">
                                     <TextBox.Text>
-                                        <Binding Path="newEntry.NewSubject" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True">                                            
+                                        <Binding Path="newEntry.NewSubject" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True">
                                         </Binding>
                                         <!--<Binding x:Name="txtNewSubjectBinding" Path="newSubject" UpdateSourceTrigger="PropertyChanged">                                            
                                             <Binding.ValidationRules>
@@ -75,11 +75,11 @@
                         </Grid.RowDefinitions>
                         <Label Grid.Column="0" Grid.Row="0" Content="Date" VerticalAlignment="Center"/>
                         <DatePicker x:Name="studyDate" Grid.Column="1" Grid.Row="0" Margin="5, 2, 5, 2" SelectedDate="{Binding Path=newEntry.DateTimeStamp, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
-                        <Label Grid.Column="0" Grid.Row="1" Content="Duration" VerticalAlignment="Center"/>                        
+                        <Label Grid.Column="0" Grid.Row="1" Content="Duration" VerticalAlignment="Center"/>
                         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
                             <Label x:Name="lblManual" Content="Manual:" />
                             <Label x:Name="lblHours" Content="hh" Margin="30, 0, 0, 0" />
-                            <ComboBox x:Name="durationHours" Margin="2, 2, 10, 2" Width="45" SelectedIndex="0" IsEnabled="True" SelectedItem="{Binding Path=newEntry.Duration, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource, Converter={StaticResource DurationConverter1}, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}">
+                            <ComboBox x:Name="durationHours" Margin="2,0,10,2" Width="45" SelectedIndex="0" IsEnabled="True" SelectedItem="{Binding Path=newEntry.Duration, Converter={StaticResource DurationConverter1}, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" Height="22" VerticalAlignment="Bottom">
                                 <ComboBoxItem Content="0"/>
                                 <ComboBoxItem Content="1"/>
                                 <ComboBoxItem Content="2"/>

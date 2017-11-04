@@ -15,20 +15,19 @@ namespace StudyWPFClient.Converters
         {
             if (value != null)
             {
-                int hours = System.Convert.ToInt32((value as ComboBoxItem)?.Content.ToString());
-                return new TimeSpan(hours, 0, 0);
+                return ((TimeSpan)value).Hours.ToString();
             }
             return null;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            //if (value != null)
-            //{
-            //    return ((TimeSpan)value).Hours.ToString();
-            //}
-            //return null;
-            return "xx";
+            if (value != null)
+            {
+                int hours = System.Convert.ToInt32((value as ComboBoxItem)?.Content.ToString());
+                return new TimeSpan(hours, 0, 0);
+            }
+            return null;
         }
     }
 }
