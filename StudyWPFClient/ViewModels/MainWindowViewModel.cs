@@ -26,6 +26,9 @@ namespace StudyWPFClient.ViewModels
         private ICommand _submitNewEntryCmd = null;
         public ICommand SubmitNewEntryCmd => _submitNewEntryCmd ?? (_submitNewEntryCmd = new SubmitNewEntryCommand(this));
 
+        private ICommand _clearNewEntryFromCmd = null;
+        public ICommand ClearNewEntryFormCmd => _clearNewEntryFromCmd ?? (_clearNewEntryFromCmd = new ClearNewEntryFormCommand(this));
+        
         public MainWindowViewModel()
         {
             try
