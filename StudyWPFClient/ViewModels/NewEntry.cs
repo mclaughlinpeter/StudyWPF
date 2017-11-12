@@ -16,6 +16,12 @@ namespace StudyWPFClient.ViewModels
             uniSub = uniqueSubjects;
         }
 
+        public void ClearEntry()
+        {
+            this.DateTimeStamp = DateTime.Today;
+            //this.Subject = "[select]";
+        }
+
         private DateTime _dateTimeStamp = DateTime.Today;
 
         public DateTime DateTimeStamp

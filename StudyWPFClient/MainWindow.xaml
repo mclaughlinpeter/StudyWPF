@@ -115,7 +115,8 @@
                         <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal" Margin="0, 10, 0, 0">
                             <Button x:Name="btnSubmitEntry" Content="Submit" Margin="5, 2, 5, 2" Width="80" Height="40" FontSize="16" 
                                     Command="{Binding Path=DataContext.SubmitNewEntryCmd, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"/>
-                            <Button x:Name="btnClearForm" Content="Clear" Margin="5, 2, 5, 2" Width="80" Height="40" FontSize="16" />
+                            <Button x:Name="btnClearForm" Content="Clear" Margin="5, 2, 5, 2" Width="80" Height="40" FontSize="16"
+                                    Command="{Binding Path=DataContext.ClearNewEntryFormCmd, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"/>
                         </StackPanel>
                         <Label x:Name="lblMessage" Grid.Column="1" Grid.Row="4" Content="" Height="0" Opacity="0.0"/>
                         <Separator Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Margin="5, 2, 5, 2" />
