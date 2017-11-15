@@ -49,7 +49,7 @@ namespace StudyWPFClient.ViewModels
             uniqueSubjects = new ObservableCollection<string>(_entries.Select(e => e.Subject).Distinct().OrderBy(s => s));
 
             newEntry = new NewEntry(uniqueSubjects);
-            DurationTimer = new Timer(state => DurationTimer_Tick(), null, Timeout.Infinite, 1000);
+            DurationTimer = new Timer(state => DurationTimer_Tick(), null, 0, 1000);
         }
 
         private void DurationTimer_Tick()

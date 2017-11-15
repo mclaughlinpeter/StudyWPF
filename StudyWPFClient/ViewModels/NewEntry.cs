@@ -19,7 +19,6 @@ namespace StudyWPFClient.ViewModels
         public void ClearEntry()
         {
             this.DateTimeStamp = DateTime.Today;
-            //this.Subject = "[select]";
         }
 
         private DateTime _dateTimeStamp = DateTime.Today;
@@ -71,6 +70,7 @@ namespace StudyWPFClient.ViewModels
                 if (value == _duration)
                     return;
                 _duration = value;
+                OnPropertyChanged(nameof(Duration));
             }
         }
         

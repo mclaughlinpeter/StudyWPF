@@ -99,7 +99,8 @@
                                 <TextBlock x:Name="timerExpanderHeader" Opacity="0.5">Use Timer</TextBlock>
                             </Expander.Header>
                             <StackPanel Orientation="Horizontal">
-                                <Label x:Name="lblTimer" Height="Auto" Width="175" Margin="5, 5, 5, 2" VerticalContentAlignment="Center" Content="00:00:00" FontFamily="Arial" FontSize="40" Background="#FFBFBFBF" BorderBrush="#FF5F5F5F" BorderThickness="2">
+                                <Label x:Name="lblTimer" Height="Auto" Width="175" Margin="5, 5, 5, 2" VerticalContentAlignment="Center" FontFamily="Arial" FontSize="40" Background="#FFBFBFBF" BorderBrush="#FF5F5F5F" BorderThickness="2"
+                                       Content="{Binding Path=newEntry.Duration, Mode=TwoWay, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}">
                                     <Label.Resources>
                                         <Style TargetType="Border">
                                             <Setter Property="CornerRadius" Value="3"/>
