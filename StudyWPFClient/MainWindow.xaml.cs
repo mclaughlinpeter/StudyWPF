@@ -70,8 +70,8 @@ namespace StudyWPFClient
             */
 
             //  Setup DispatcherTimer
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += timer_Tick;
+            //timer.Interval = TimeSpan.FromSeconds(1);
+            //timer.Tick += timer_Tick;
         }
                 
         private void btnSubmitEntry_Click(object sender, RoutedEventArgs e)
@@ -182,8 +182,8 @@ namespace StudyWPFClient
         //  timer event handler and timer button event handlers
         private void timer_Tick(object sender, EventArgs e)
         {
-            timerDuration += TimeSpan.FromSeconds(1);
-            lblTimer.Content = timerDuration.ToString("c");
+            //timerDuration += TimeSpan.FromSeconds(1);
+            //lblTimer.Content = timerDuration.ToString("c");
         }
 
         private void btnToggleTimer_Click(object sender, RoutedEventArgs e)

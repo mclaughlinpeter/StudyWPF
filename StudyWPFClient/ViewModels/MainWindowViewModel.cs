@@ -21,6 +21,7 @@ namespace StudyWPFClient.ViewModels
 
         public NewEntry newEntry { get; set; }
         private Timer DurationTimer;
+        private bool DurationTimerRunning;
 
         private ICommand _addSubjectCmd = null;
         public ICommand AddSubjectCmd => _addSubjectCmd ?? (_addSubjectCmd = new AddSubjectCommand(this));
@@ -30,7 +31,10 @@ namespace StudyWPFClient.ViewModels
 
         private ICommand _clearNewEntryFromCmd = null;
         public ICommand ClearNewEntryFormCmd => _clearNewEntryFromCmd ?? (_clearNewEntryFromCmd = new ClearNewEntryFormCommand(this));
-        
+
+        private ICommand _toggleTimerCmd = null;
+        public ICommand ToggleTimerCmd => _toggleTimerCmd ?? (_toggleTimerCmd = new ToggleTimerCommand(this));
+
         public MainWindowViewModel()
         {
             try
@@ -49,12 +53,28 @@ namespace StudyWPFClient.ViewModels
             uniqueSubjects = new ObservableCollection<string>(_entries.Select(e => e.Subject).Distinct().OrderBy(s => s));
 
             newEntry = new NewEntry(uniqueSubjects);
-            DurationTimer = new Timer(state => DurationTimer_Tick(), null, 0, 1000);
+
+            DurationTimer = new Timer(state => DurationTimer_Tick(), null, Timeout.Infinite, 1000);
+            DurationTimerRunning = false;
         }
 
         private void DurationTimer_Tick()
         {
             newEntry.Duration += TimeSpan.FromSeconds(1);
+        }
+
+        public void ToggleTimer()
+        {
+            if (DurationTimerRunning)
+            {
+                DurationTimer.Change(Timeout.Infinite, Timeout.Infinite);
+                DurationTimerRunning = false;
+            }                
+            else
+            {
+                DurationTimer.Change(0, 1000);
+                DurationTimerRunning = true;
+            }                
         }
 
         public void SaveEntry()
