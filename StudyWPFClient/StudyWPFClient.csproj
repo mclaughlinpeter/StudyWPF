@@ -66,6 +66,7 @@
     </ApplicationDefinition>
     <Compile Include="Cmds\AddSubjectCommand.cs" />
     <Compile Include="Cmds\ClearNewEntryFormCommand.cs" />
+    <Compile Include="Cmds\ResetTimerCommand.cs" />
     <Compile Include="Cmds\SubmitNewEntryCommand.cs" />
     <Compile Include="Cmds\ToggleTimerCommand.cs" />
     <Compile Include="Converters\ComboBoxDurationConverter.cs" />

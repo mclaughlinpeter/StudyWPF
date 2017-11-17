@@ -110,7 +110,8 @@
                                 <StackPanel Orientation="Vertical">
                                     <Button x:Name="btnToggleTimer" Margin="2, 5, 2, 2" Content="Start / Stop" 
                                             Command="{Binding Path=DataContext.ToggleTimerCmd, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"/>
-                                    <Button x:Name="btnResetTimer" Margin="2, 5, 2, 2" Content="Reset" Click="btnResetTimer_Click" />
+                                    <Button x:Name="btnResetTimer" Margin="2, 5, 2, 2" Content="Reset" 
+                                            Command="{Binding Path=DataContext.ResetTimerCmd, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"/>
                                 </StackPanel>
                             </StackPanel>
                         </Expander>

@@ -35,6 +35,9 @@ namespace StudyWPFClient.ViewModels
         private ICommand _toggleTimerCmd = null;
         public ICommand ToggleTimerCmd => _toggleTimerCmd ?? (_toggleTimerCmd = new ToggleTimerCommand(this));
 
+        private ICommand _resetTimerCmd = null;
+        public ICommand ResetTimerCmd => _resetTimerCmd ?? (_resetTimerCmd = new ResetTimerCommand(this));
+
         public MainWindowViewModel()
         {
             try
@@ -63,6 +66,7 @@ namespace StudyWPFClient.ViewModels
             newEntry.Duration += TimeSpan.FromSeconds(1);
         }
 
+        //  timer methods
         public void ToggleTimer()
         {
             if (DurationTimerRunning)
@@ -72,9 +76,17 @@ namespace StudyWPFClient.ViewModels
             }                
             else
             {
-                DurationTimer.Change(0, 1000);
+                DurationTimer.Change(1000, 1000);
                 DurationTimerRunning = true;
             }                
+        }
+
+        public void ResetTimer()
+        {
+            DurationTimer.Change(Timeout.Infinite, Timeout.Infinite);
+            DurationTimerRunning = false;
+
+            newEntry.Duration = TimeSpan.Zero;
         }
 
         public void SaveEntry()

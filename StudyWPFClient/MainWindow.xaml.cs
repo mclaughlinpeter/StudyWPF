@@ -24,128 +24,14 @@ namespace StudyWPFClient
     {
         MainWindowViewModel viewModel;
 
-        readonly IList<Entry> _entries;
-
-        DispatcherTimer timer = new DispatcherTimer();
-        TimeSpan timerDuration = new TimeSpan(0, 0, 0);
-
-        public bool SubjectError
-        {
-            get => Validation.GetHasError(txtNewSubject);
-        }
-
         public MainWindow()
         {
             InitializeComponent();
 
             viewModel = new MainWindowViewModel();
-            this.DataContext = viewModel;
-
-            //NewSubjectRule rule = new NewSubjectRule { subjectsWrapper = new Wrapper() };
-            //rule.subjectsWrapper.UniqueSubjects = viewModel.uniqueSubjects;
-            //txtNewSubjectBinding.ValidationRules.Add(rule);
-            /*
-            try
-            {
-                using (var repo = new EntryRepo())
-                {
-                    _entries = new List<Entry>(repo.GetAll());
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Unable to connect to data source", "Study Application");
-                Environment.Exit(1);
-            }            
-
-            //{
-            //    new Entry { EntryID = 1, Subject = "C#", Duration = new TimeSpan(2, 30, 0), DateTimeStamp = DateTime.Now.AddHours(1) },
-            //    new Entry { EntryID = 2, Subject = "JS", Duration = new TimeSpan(0, 45, 0), DateTimeStamp = DateTime.Now.AddMinutes(30) },
-            //    new Entry { EntryID = 3, Subject = "C++", Duration = new TimeSpan(1, 15, 0), DateTimeStamp = DateTime.Now.AddDays(2) },
-            //    new Entry { EntryID = 4, Subject = "Linux", Duration = new TimeSpan(0, 30, 0), DateTimeStamp = DateTime.Now.AddMonths(1) },
-            //    new Entry { EntryID = 5, Subject = "C++", Duration = new TimeSpan(1, 30, 0), DateTimeStamp = DateTime.Now.AddDays(3) },
-            //    new Entry { EntryID = 6, Subject = "Linux", Duration = new TimeSpan(0, 45, 0), DateTimeStamp = DateTime.Now.AddMonths(2) }
-            //};
-            studySubjects.ItemsSource = new HashSet<string>(from e in _entries select e.Subject);
-            */
-
-            //  Setup DispatcherTimer
-            //timer.Interval = TimeSpan.FromSeconds(1);
-            //timer.Tick += timer_Tick;
+            this.DataContext = viewModel;            
         }
-                
-        private void btnSubmitEntry_Click(object sender, RoutedEventArgs e)
-        {
-            Entry newEntry = new Entry();
-
-            //  obtain subject
-            newEntry.Subject = this.studySubjects.SelectedItem?.ToString() ?? "No subject";
-
-            //  obtain duration 
-            if (timerExpander.IsExpanded)
-            {
-                newEntry.Duration = timerDuration;
-                if (timer.IsEnabled)
-                    timer.Stop();
-                timerDuration = TimeSpan.Zero;
-                lblTimer.Content = timerDuration.ToString("c");
-            }
-            else
-            {
-                int hours = 0;
-                try
-                {
-                    hours = Convert.ToInt32((this.durationHours.SelectedItem as ComboBoxItem)?.Content.ToString());
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    return;
-                }
-
-                int minutes = 0;
-                try
-                {
-                    minutes = Convert.ToInt32((this.durationMinutes.SelectedItem as ComboBoxItem)?.Content.ToString());
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    return;
-                }
-
-                //  set duration with manual values from UI
-                newEntry.Duration = new TimeSpan(hours, minutes, 0);
-            }                        
-
-            //  obtain date
-            try
-            {
-                newEntry.DateTimeStamp = (DateTime)studyDate.SelectedDate;
-            }
-            catch (Exception)
-            {
-                newEntry.DateTimeStamp = DateTime.Now;
-            }
-
-            //  write entry to database
-            try
-            {
-                using (var repo = new EntryRepo())
-                {
-                    repo.Add(newEntry);
-                }
-            }
-            catch (Exception)
-            {
-                MessageAnimation("Error writing to database");
-                return;
-            }            
-
-            //  confirm successful write to database
-            MessageAnimation("Db write successful");
-        }
-
+        
         private void MessageAnimation(string msg)
         {
             lblMessage.Content = msg;
@@ -179,29 +65,6 @@ namespace StudyWPFClient
             lblMessage.BeginStoryboard(storyboard);
         }
 
-        //  timer event handler and timer button event handlers
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            //timerDuration += TimeSpan.FromSeconds(1);
-            //lblTimer.Content = timerDuration.ToString("c");
-        }
-
-        private void btnToggleTimer_Click(object sender, RoutedEventArgs e)
-        {
-            if (timer.IsEnabled)
-                timer.Stop();
-            else
-                timer.Start();
-        }
-
-        private void btnResetTimer_Click(object sender, RoutedEventArgs e)
-        {
-            if (timer.IsEnabled)
-                timer.Stop();
-            timerDuration = TimeSpan.Zero;
-            lblTimer.Content = timerDuration.ToString("c");
-        }
-
         private void timerExpander_Expanded(object sender, RoutedEventArgs e)
         {
             durationHours.IsEnabled = false;
@@ -228,18 +91,6 @@ namespace StudyWPFClient
 
             lblManual.Opacity = 1.0;
             timerExpanderHeader.Opacity = 0.5;
-        }
-
-        private void btnNewSubject_Click(object sender, RoutedEventArgs e)
-        {
-            if (txtNewSubject.Text != "" && !(Validation.GetHasError(txtNewSubject)))
-            {
-                viewModel.uniqueSubjects.Add(txtNewSubject.Text);
-                MessageAnimation("New subject added");
-                txtNewSubject.Text = "";
-            }
-            else
-                MessageAnimation("Invalid subject");
         }
 
         private void newSubjectExpander_Expanded(object sender, RoutedEventArgs e)
