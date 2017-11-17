@@ -13,8 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using StudyDAL.Models;
-using StudyDAL.Repos;
 using StudyWPFClient.ViewModels;
 using System.Windows.Media.Animation;
 
@@ -22,14 +20,11 @@ namespace StudyWPFClient
 {
     public partial class MainWindow : Window
     {
-        MainWindowViewModel viewModel;
-
         public MainWindow()
         {
             InitializeComponent();
 
-            viewModel = new MainWindowViewModel();
-            this.DataContext = viewModel;            
+            this.DataContext = new MainWindowViewModel();
         }
         
         private void MessageAnimation(string msg)
