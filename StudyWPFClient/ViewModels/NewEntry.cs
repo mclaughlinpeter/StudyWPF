@@ -19,6 +19,7 @@ namespace StudyWPFClient.ViewModels
         public void ClearEntry()
         {
             this.DateTimeStamp = DateTime.Today;
+            this.Subject = null;
         }
 
         private DateTime _dateTimeStamp = DateTime.Today;

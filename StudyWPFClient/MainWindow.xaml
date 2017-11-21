@@ -32,7 +32,7 @@
                         <Label Grid.Column="0" Grid.Row="0" Content="Subject"/>
                         <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
                             <Label Content="Existing:" />
-                            <ComboBox x:Name="studySubjects" Margin="5, 2, 5, 2" Width="191" ItemsSource="{Binding Path=uniqueSubjects}" SelectedItem="{Binding Path=newEntry.Subject, Mode=OneWayToSource, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" />
+                            <ComboBox x:Name="studySubjects" Margin="5, 2, 5, 2" Width="191" ItemsSource="{Binding Path=uniqueSubjects}" SelectedItem="{Binding Path=newEntry.Subject, Mode=TwoWay, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" />
                         </StackPanel>
                         <Expander x:Name="newSubjectExpander" Grid.Column="1" Grid.Row="1" Margin="0, 2, 0, 5" Expanded="newSubjectExpander_Expanded" Collapsed="newSubjectExpander_Collapsed">
                             <Expander.Header>
