@@ -49,6 +49,8 @@ namespace StudyWPFClient.ViewModels
             }
         }
 
+        public bool NewSubjectError { get; set; }
+
         private string _subject;
         public string Subject
         {
@@ -130,8 +132,5 @@ namespace StudyWPFClient.ViewModels
                 return string.Empty;
             }
         }
-
-        //  Error flags
-        public bool NewSubjectError { get; set; }
     }
 }

@@ -72,6 +72,7 @@
     <Compile Include="Converters\ComboBoxDurationConverter.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NewEntry.cs" />
+    <Compile Include="ViewModels\NewSubject.cs" />
     <Compile Include="ViewModels\ValidationRules\NewSubjectRule.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
