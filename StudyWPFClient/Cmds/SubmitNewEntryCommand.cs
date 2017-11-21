@@ -36,6 +36,9 @@ namespace StudyWPFClient.Cmds
         public void Execute(object parameter)
         {
             viewModel.SaveEntry();
+
+            viewModel.ResetTimer();
+            viewModel.newEntry.ClearEntry();
         }
     }
 }
