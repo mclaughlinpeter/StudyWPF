@@ -15,7 +15,7 @@ namespace StudyWPFClient.Converters
         {
             if (value != null)
             {
-                return ((TimeSpan)value).Hours.ToString();
+                return ((TimeSpan)value).TotalMinutes.ToString();
             }
             return null;
         }
@@ -24,8 +24,8 @@ namespace StudyWPFClient.Converters
         {
             if (value != null)
             {
-                int hours = System.Convert.ToInt32((value as ComboBoxItem)?.Content.ToString());
-                return new TimeSpan(hours, 0, 0);
+                int minutes = System.Convert.ToInt32((value as ComboBoxItem)?.Content.ToString());
+                return new TimeSpan(0, minutes, 0);
             }
             return null;
         }
