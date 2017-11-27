@@ -25,7 +25,7 @@ namespace StudyWPFClient.Cmds
 
         public bool CanExecute(object parameter)
         {
-            if (((NewEntry)parameter)?.NewSubjectError == true)
+            if (viewModel.newSubject.Error != string.Empty)
             {
                 return false;
             }
@@ -35,8 +35,8 @@ namespace StudyWPFClient.Cmds
 
         public void Execute(object parameter)
         {
-            viewModel.uniqueSubjects.Add(((NewEntry)parameter)?.NewSubject);
-            viewModel.newEntry.NewSubject = string.Empty;
+            viewModel.uniqueSubjects.Add(viewModel.newSubject.NewSubjectName);
+            viewModel.newSubject.NewSubjectName = string.Empty;
         }
     }
 }
