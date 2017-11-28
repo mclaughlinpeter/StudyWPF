@@ -57,7 +57,7 @@ namespace StudyWPFClient.ViewModels
 
             uniqueSubjects = new ObservableCollection<string>(_entries.Select(e => e.Subject).Distinct().OrderBy(s => s));
 
-            newEntry = new NewEntry(uniqueSubjects);
+            newEntry = new NewEntry();
 
             newSubject = new NewSubject(uniqueSubjects);
 

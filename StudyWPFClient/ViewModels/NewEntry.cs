@@ -9,13 +9,6 @@ namespace StudyWPFClient.ViewModels
 {
     public class NewEntry : INotifyPropertyChanged, IDataErrorInfo
     {
-        private readonly IList<string> uniSub;
-
-        public NewEntry(IList<string> uniqueSubjects)
-        {
-            uniSub = uniqueSubjects;
-        }
-
         public void ClearEntry()
         {
             this.DateTimeStamp = DateTime.Today;
