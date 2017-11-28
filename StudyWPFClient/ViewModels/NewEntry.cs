@@ -36,21 +36,6 @@ namespace StudyWPFClient.ViewModels
             }
         }
 
-        private string _newSubject = string.Empty;
-        public string NewSubject
-        {
-            get { return _newSubject; }
-            set
-            {
-                if (value == _newSubject)
-                    return;
-                _newSubject = value;
-                OnPropertyChanged(nameof(NewSubject));
-            }
-        }
-
-        public bool NewSubjectError { get; set; }
-
         private string _subject;
         public string Subject
         {
@@ -102,20 +87,6 @@ namespace StudyWPFClient.ViewModels
                         }
                         else
                             this.Error = string.Empty;
-                        break;
-                    case nameof(NewSubject):
-                        if (uniSub.Contains(NewSubject.Trim()))
-                        {
-                            this.NewSubjectError = true;
-                            return "Subject already exists";
-                        }
-                        else if (String.IsNullOrWhiteSpace(NewSubject))
-                        {
-                            this.NewSubjectError = true;
-                            return "New subject field is empty";
-                        }
-                        else
-                            this.NewSubjectError = false;
                         break;
                     case nameof(Subject):
                         if (String.IsNullOrEmpty(Subject))
