@@ -16,7 +16,6 @@ namespace StudyWPFClient.ViewModels
         }
 
         private DateTime _dateTimeStamp = DateTime.Today;
-
         public DateTime DateTimeStamp
         {
             get { return _dateTimeStamp; }
