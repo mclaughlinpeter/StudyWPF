@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="EF\DataInitializer.cs" />
     <Compile Include="EF\StudyEntities.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entry.cs" />
     <Compile Include="Models\Partials\EntryPartial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
