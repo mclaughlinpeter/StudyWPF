@@ -32,7 +32,7 @@
                         <Label Grid.Column="0" Grid.Row="0" Content="Subject"/>
                         <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
                             <Label Content="Existing:" />
-                            <ComboBox x:Name="studySubjects" Margin="5, 2, 5, 2" Width="191" ItemsSource="{Binding Path=uniqueSubjects}" SelectedItem="{Binding Path=newEntry.Subject, Mode=TwoWay, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" />
+                            <ComboBox x:Name="studySubjects" Margin="5, 2, 5, 2" Width="191" ItemsSource="{Binding Path=uniqueSubjects}" SelectedItem="{Binding Path=NewEntry.Subject, Mode=TwoWay, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" />
                         </StackPanel>
                         <Expander x:Name="newSubjectExpander" Grid.Column="1" Grid.Row="1" Margin="0, 2, 0, 5" Expanded="newSubjectExpander_Expanded" Collapsed="newSubjectExpander_Collapsed">
                             <Expander.Header>
@@ -74,12 +74,12 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Label Grid.Column="0" Grid.Row="0" Content="Date" VerticalAlignment="Center"/>
-                        <DatePicker x:Name="studyDate" Grid.Column="1" Grid.Row="0" Margin="5, 2, 5, 2" SelectedDate="{Binding Path=newEntry.DateTimeStamp, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
+                        <DatePicker x:Name="studyDate" Grid.Column="1" Grid.Row="0" Margin="5, 2, 5, 2" SelectedDate="{Binding Path=NewEntry.DateTimeStamp, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}"/>
                         <Label Grid.Column="0" Grid.Row="1" Content="Duration" VerticalAlignment="Center"/>
                         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
                             <Label x:Name="lblManual" Content="Manual:" />
                             <Label x:Name="lblDuration" Content="Select Minutes" Margin="30, 0, 0, 0" />
-                            <ComboBox x:Name="durationComboBox" Margin="2,0,10,2" Width="60" SelectedIndex="0" IsEnabled="True" SelectedValue="{Binding Path=newEntry.Duration, Converter={StaticResource DurationConverter1}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" Height="22" VerticalAlignment="Bottom">
+                            <ComboBox x:Name="durationComboBox" Margin="2,0,10,2" Width="60" SelectedIndex="0" IsEnabled="True" SelectedValue="{Binding Path=NewEntry.Duration, Converter={StaticResource DurationConverter1}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" Height="22" VerticalAlignment="Bottom">
                                 <ComboBoxItem Content="30"/>
                                 <ComboBoxItem Content="60"/>
                                 <ComboBoxItem Content="90"/>
@@ -92,7 +92,7 @@
                             </Expander.Header>
                             <StackPanel Orientation="Horizontal">
                                 <Label x:Name="lblTimer" Height="Auto" Width="175" Margin="5, 5, 5, 2" VerticalContentAlignment="Center" FontFamily="Arial" FontSize="40" Background="#FFBFBFBF" BorderBrush="#FF5F5F5F" BorderThickness="2"
-                                       Content="{Binding Path=newEntry.Duration, Mode=TwoWay, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}">
+                                       Content="{Binding Path=NewEntry.Duration, Mode=TwoWay, UpdateSourceTrigger=LostFocus, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}">
                                     <Label.Resources>
                                         <Style TargetType="Border">
                                             <Setter Property="CornerRadius" Value="3"/>

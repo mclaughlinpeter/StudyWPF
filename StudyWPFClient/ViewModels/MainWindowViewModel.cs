@@ -19,7 +19,7 @@ namespace StudyWPFClient.ViewModels
 
         public ObservableCollection<string> uniqueSubjects { get; set; }
 
-        public NewEntry newEntry { get; set; }
+        public Entry NewEntry { get; set; } = new Entry();
         private Timer DurationTimer;
         private bool DurationTimerRunning;
 
@@ -57,8 +57,6 @@ namespace StudyWPFClient.ViewModels
 
             uniqueSubjects = new ObservableCollection<string>(_entries.Select(e => e.Subject).Distinct().OrderBy(s => s));
 
-            newEntry = new NewEntry();
-
             newSubject = new NewSubject(uniqueSubjects);
 
             DurationTimer = new Timer(state => DurationTimer_Tick(), null, Timeout.Infinite, 1000);
@@ -67,7 +65,7 @@ namespace StudyWPFClient.ViewModels
 
         private void DurationTimer_Tick()
         {
-            newEntry.Duration += TimeSpan.FromSeconds(1);
+            NewEntry.Duration += TimeSpan.FromSeconds(1);
         }
 
         //  timer methods
@@ -90,18 +88,16 @@ namespace StudyWPFClient.ViewModels
             DurationTimer.Change(Timeout.Infinite, Timeout.Infinite);
             DurationTimerRunning = false;
 
-            newEntry.Duration = TimeSpan.Zero;
+            NewEntry.Duration = TimeSpan.Zero;
         }
 
         public void SaveEntry()
         {
-            Entry entry = NewEntryToEntry(newEntry);
-
             try
             {
                 using (var repo = new EntryRepo())
                 {
-                    repo.Add(entry);
+                    repo.Add(this.NewEntry);
                 }
             }
             catch (Exception)
@@ -109,11 +105,6 @@ namespace StudyWPFClient.ViewModels
                 //  TO DO: determine how to handle this
                 return;
             }
-        }
-
-        private Entry NewEntryToEntry(NewEntry newEntry)
-        {
-            return new Entry() { DateTimeStamp = newEntry.DateTimeStamp, Subject = newEntry.Subject, Duration = newEntry.Duration };
         }
     }
 }

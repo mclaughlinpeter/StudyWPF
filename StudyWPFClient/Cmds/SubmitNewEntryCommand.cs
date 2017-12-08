@@ -25,7 +25,7 @@ namespace StudyWPFClient.Cmds
 
         public bool CanExecute(object parameter)
         {
-            if (viewModel.newEntry.Error != string.Empty)
+            if (viewModel.NewEntry.Error != string.Empty)
             {
                 return false;
             }
@@ -38,7 +38,7 @@ namespace StudyWPFClient.Cmds
             viewModel.SaveEntry();
 
             viewModel.ResetTimer();
-            viewModel.newEntry.ClearEntry();
+            viewModel.NewEntry.ClearEntry();
         }
     }
 }
