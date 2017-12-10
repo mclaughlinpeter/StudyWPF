@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dat\StudyDat.cs" />
     <Compile Include="EF\DataInitializer.cs" />
     <Compile Include="EF\StudyEntities.cs" />
     <Compile Include="Migrations\201712051546468_InitialCreate.cs" />
