@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StudyDAL.Repos;
 using StudyDAL.Models;
+using StudyDAL.Dat;
 using StudyDAL.EF;
 using System.Data.Entity;
 
@@ -14,9 +15,20 @@ namespace StudyConsoleTest
     {
         static void Main(string[] args)
         {
-            Database.SetInitializer(new DataInitializer());
-            PrintAllEntries();
-            PrintSubjects();
+            //Database.SetInitializer(new DataInitializer());
+            //PrintAllEntries();
+            //PrintSubjects();
+
+            IList<string> entries = StudyDat.ReadText();
+            if (entries != null)
+            {
+                foreach (string line in entries)
+                {
+                    Console.WriteLine(line);
+                }
+            }
+            else
+                Console.WriteLine("No data");
         }
 
         static void PrintAllEntries()
