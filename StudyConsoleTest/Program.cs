@@ -19,12 +19,23 @@ namespace StudyConsoleTest
             //PrintAllEntries();
             //PrintSubjects();
 
-            IList<string> entries = StudyDat.ReadText();
+            //IList<string> entries = StudyDat.ReadText();
+            //if (entries != null)
+            //{
+            //    foreach (string line in entries)
+            //    {
+            //        Console.WriteLine(line);
+            //    }
+            //}
+            //else
+            //    Console.WriteLine("No data");
+
+            IList<Entry> entries = StudyDat.ReadEntries();
             if (entries != null)
             {
-                foreach (string line in entries)
+                foreach (Entry entry in entries)
                 {
-                    Console.WriteLine(line);
+                    Console.WriteLine(entry.ToString());
                 }
             }
             else
