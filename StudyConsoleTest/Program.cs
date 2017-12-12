@@ -16,7 +16,7 @@ namespace StudyConsoleTest
         static void Main(string[] args)
         {
             //Database.SetInitializer(new DataInitializer());
-            //PrintAllEntries();
+            PrintAllEntries();
             //PrintSubjects();
 
             //IList<string> entries = StudyDat.ReadText();
@@ -30,28 +30,36 @@ namespace StudyConsoleTest
             //else
             //    Console.WriteLine("No data");
 
-            IList<Entry> entries = StudyDat.ReadEntries();
-            if (entries != null)
-            {
-                foreach (Entry entry in entries)
-                {
-                    Console.WriteLine(entry.ToString());
-                }
-            }
-            else
-                Console.WriteLine("No data");
+            //IList<Entry> entries = StudyDat.ReadEntries();
+            //if (entries != null)
+            //{
+            //    foreach (Entry entry in entries)
+            //    {
+            //        Console.WriteLine(entry.ToString());
+            //    }
+            //}
+            //else
+            //    Console.WriteLine("No data");
         }
 
         static void PrintAllEntries()
         {
-            using (var repo = new EntryRepo())
+            try
             {
-                foreach (Entry e in repo.GetAll())
+                using (var repo = new EntryRepo())
                 {
-                    Console.WriteLine(e.ToString());
+                    foreach (Entry e in repo.GetAll())
+                    {
+                        Console.WriteLine(e.ToString());
+                    }
+                    Console.WriteLine();
                 }
-                Console.WriteLine();
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Not able to access database");
+                Console.WriteLine(ex.Message);
+            }            
         }
 
         static void PrintSubjects()
