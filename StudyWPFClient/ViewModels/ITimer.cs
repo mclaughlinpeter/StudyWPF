@@ -8,8 +8,6 @@ namespace StudyWPFClient.ViewModels
 {
     interface ITimer
     {
-        void Reset();
-
         void Toggle();
 
         void Start();
