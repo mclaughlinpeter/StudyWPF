@@ -19,7 +19,10 @@ namespace StudyDAL.Models
         {
             this.DateTimeStamp = DateTime.Today;
             this.Subject = null;
+            this.Duration = TimeSpan.Zero;
         }
+
+        public void ResetDuration() => this.Duration = TimeSpan.Zero;
 
         //  IDataErrorInfo
         [NotMapped]

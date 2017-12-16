@@ -30,7 +30,7 @@ namespace StudyWPFClient.Cmds
 
         public void Execute(object parameter)
         {
-            viewModel.ToggleTimer();
+            viewModel.DurationTimer.Toggle();
         }
     }
 }

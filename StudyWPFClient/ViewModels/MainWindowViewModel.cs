@@ -20,8 +20,8 @@ namespace StudyWPFClient.ViewModels
         public ObservableCollection<string> uniqueSubjects { get; set; }
 
         public Entry NewEntry { get; set; } = new Entry();
-        private Timer DurationTimer;
-        private bool DurationTimerRunning;
+
+        public ITimer DurationTimer { get; }
 
         public NewSubject newSubject { get; set; }
 
@@ -59,36 +59,12 @@ namespace StudyWPFClient.ViewModels
 
             newSubject = new NewSubject(uniqueSubjects);
 
-            DurationTimer = new Timer(state => DurationTimer_Tick(), null, Timeout.Infinite, 1000);
-            DurationTimerRunning = false;
+            DurationTimer = new StudyTimer(state => DurationTimer_Tick(), 1000);
         }
 
         private void DurationTimer_Tick()
         {
             NewEntry.Duration += TimeSpan.FromSeconds(1);
-        }
-
-        //  timer methods
-        public void ToggleTimer()
-        {
-            if (DurationTimerRunning)
-            {
-                DurationTimer.Change(Timeout.Infinite, Timeout.Infinite);
-                DurationTimerRunning = false;
-            }                
-            else
-            {
-                DurationTimer.Change(1000, 1000);
-                DurationTimerRunning = true;
-            }                
-        }
-
-        public void ResetTimer()
-        {
-            DurationTimer.Change(Timeout.Infinite, Timeout.Infinite);
-            DurationTimerRunning = false;
-
-            NewEntry.Duration = TimeSpan.Zero;
         }
 
         public void SaveEntry()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudyWPFClient.ViewModels
 {
-    interface ITimer
+    public interface ITimer
     {
         void Toggle();
 

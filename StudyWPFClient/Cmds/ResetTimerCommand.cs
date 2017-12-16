@@ -30,7 +30,8 @@ namespace StudyWPFClient.Cmds
 
         public void Execute(object parameter)
         {
-            viewModel.ResetTimer();
+            viewModel.DurationTimer.Stop();
+            viewModel.NewEntry.ResetDuration();
         }
     }
 }

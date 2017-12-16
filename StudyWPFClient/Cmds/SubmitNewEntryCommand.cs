@@ -37,7 +37,7 @@ namespace StudyWPFClient.Cmds
         {
             viewModel.SaveEntry();
 
-            viewModel.ResetTimer();
+            viewModel.DurationTimer.Stop();
             viewModel.NewEntry.ClearEntry();
         }
     }
